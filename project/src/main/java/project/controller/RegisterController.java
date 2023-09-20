@@ -32,16 +32,7 @@ public class RegisterController {
 
     @PostMapping("/addUser")
     public String register(UserDetailsDto userDetailsDto, Model m) {
-        System.out.println("register/addUser");
 
-//        if (!duplicateCheck(userDetailsDto)) {
-//            String msg = URLEncoder.encode("duplicated id", "utf-8");
-//
-//            return "redirect:/register/add?msg=" + msg;
-//        }
-
-        log.info("RegisterController   //  userDetailsDto = " + userDetailsDto);
-        System.out.println("userDetailsDto = " + userDetailsDto);
         int cnt = userDetailService.registerAccount(userDetailsDto);
         if(cnt!=1){
             m.addAttribute("msg","회원가입에 실패하였습니다. 다시 시도해 주세요");
@@ -49,7 +40,6 @@ public class RegisterController {
         }else{
             m.addAttribute("msg","회원가입이 완료되었습니다.");
         }
-        System.out.println("Register complete");
 
         return "loginForm";
     }
@@ -66,11 +56,8 @@ public class RegisterController {
 
     @PostMapping("/checkID")
     public String checkID(UserDetailsDto userDetailsDto, Model m) {
-        System.out.println("/register/checkID");
-        System.out.println("userDetailsDto = " + userDetailsDto);
-        int cnt = userDao.count(userDetailsDto.getUsername());
-        System.out.println("cnt = " + cnt);
 
+        int cnt = userDao.count(userDetailsDto.getUsername());
         if (cnt == 0) {
             m.addAttribute("msg", "사용 가능한 ID 입니다.");
         } else {
