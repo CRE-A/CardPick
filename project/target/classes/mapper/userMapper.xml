@@ -11,6 +11,12 @@
         WHERE id = #{id};
     </select>
 
+    <select id="selectUserInfo" parameterType="String" resultType="UserDto">
+        SELECT *
+        FROM user
+        WHERE id = #{id};
+    </select>
+
     <insert id="insert" parameterType="UserDetailsDto">
         INSERT INTO user (id, pwd, name, email, dpt, phone, regdate)
         VALUES (#{id}, #{pwd}, #{name}, #{email}, #{dpt}, #{phone}, now());

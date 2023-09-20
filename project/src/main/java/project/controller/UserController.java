@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.DAO.UserDao;
 import project.DTO.UserDetailsDto;
+import project.DTO.UserDto;
 
 @Controller
 @RequestMapping("/user")
@@ -25,9 +26,10 @@ public class UserController {
     @GetMapping("/main")
     public String myPage(Model m, Authentication auth, String msg) {
 
-        UserDetailsDto userDetailsDto = userDao.select(getId(auth));
-        m.addAttribute("userDetailsDto", userDetailsDto);
-        m.addAttribute("id", getId(auth));
+//        UserDetailsDto userDetailsDto = userDao.select(getId(auth));
+        UserDto userDto = userDao.selectUserInfo(getId(auth));
+        m.addAttribute("userDto", userDto);
+//        m.addAttribute("id", getId(auth));
         m.addAttribute("msg", msg);
 
         return "myPage";

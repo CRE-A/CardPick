@@ -32,21 +32,21 @@
             <span class="icon">⊙</span>
             <span class="title">이름:</span>
 <%--            <span class="info">사용가능 기간(2023.1.1~2023.1.1)</span>--%>
-<%--            <span class="info">사용가능 기간(${userDetailsDto.regdate}~2023.1.1)</span>--%>
+<%--            <span class="info">사용가능 기간(${userDto.regdate}~2023.1.1)</span>--%>
 <%--            <span class="name">임휘성</span>--%>
-            <span class="name">${userDetailsDto.name}</span>
+            <span class="name">${userDto.name}</span>
         </div>
         <div class="itemBox">
             <span class="icon">⊙</span>
             <span class="title">아이디:</span>
 <%--            <span class="name">testId</span>--%>
 <%--            <span class="name">${userDetailsDto.id}</span>--%>
-            <span class="name">${id}</span>
+            <span class="name">${userDto.id}</span>
         </div>
         <div class="itemBox">
             <span class="icon">⊙</span>
             <span class="title">이메일:</span>
-            <span class="name">${userDetailsDto.email}</span>
+            <span class="name">${userDto.email}</span>
         </div>
     </section>
     <hr/>
@@ -90,14 +90,14 @@
             <div class="itemPersonal">
                 <div class="item">
                     <span class="title">소속 : </span>
-                    <input type="text" name="dpt" value="${userDetailsDto.dpt}"/>
+                    <input type="text" name="dpt" value="${userDto.dpt}"/>
                 </div>
                 <button class="none">수정</button>
             </div>
             <div class="itemPersonal">
                 <div class="item">
                     <span class="title">전화번호 : </span>
-                    <input type="text" name="phone" ${userDetailsDto.phone}/>
+                    <input type="text" name="phone" value="${userDto.phone}"/>
                 </div>
                 <button class="modifyBtn" type="button" id="changeDptPhoneBtn">수정</button>
             </div>

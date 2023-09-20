@@ -1,12 +1,15 @@
 package project.DAO;
 
+import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import project.DTO.UserDetailsDto;
+import project.DTO.UserDto;
 
 @Repository
 public class UserDaoImpl implements UserDao {
+
     @Autowired
     private SqlSession session;
     private static String namespace = "project.DAO.UserMapper.";
@@ -17,6 +20,12 @@ public class UserDaoImpl implements UserDao {
     public UserDetailsDto select(String id) {
         return session.selectOne(namespace + "select", id);
     }
+
+    @Override
+    public UserDto selectUserInfo(String id) {
+        return session.selectOne(namespace + "selectUserInfo", id);
+    }
+
 
     @Override
     public int insert(UserDetailsDto userDetailsDto) {

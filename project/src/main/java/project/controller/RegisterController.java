@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import project.DTO.UserDetailsDto;
 import project.DAO.UserDao;
+import project.DTO.UserDto;
 import project.service.UserDetailService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.constraints.NotNull;
 import java.net.URLEncoder;
+
 
 @Slf4j
 @Controller
@@ -25,6 +28,7 @@ public class RegisterController {
 
     private final UserDetailService userDetailService;
     private final UserDao userDao;
+    private final MailController mailController;
 
 
     @GetMapping("/addUser")
@@ -50,17 +54,16 @@ public class RegisterController {
 
 
     @PostMapping("/checkID")
-    public String checkID(UserDetailsDto userDetailsDto, Model m) {
+    public String checkID(UserDto userDto, Model m) {
 
-        int cnt = userDao.count(userDetailsDto.getUsername());
+        int cnt = userDao.count(userDto.getId());
         if (cnt == 0) {
             m.addAttribute("msg", "사용 가능한 ID 입니다.");
         } else {
             m.addAttribute("msg", "이미 사용중인 ID 입니다.");
         }
 
-        m.addAttribute("userDetailsDto", userDetailsDto);
-        m.addAttribute("id", userDetailsDto.getUsername());
+        m.addAttribute("userDto", userDto);
         return "registerForm";
     }
 
@@ -72,13 +75,15 @@ public class RegisterController {
 
 
     @PostMapping("/findPwd")
-    public String findPwd(UserDetailsDto userDetailsDto, Model m) {
+    public String findPwd(UserDetailsDto userDetailsDto, Model m, HttpServletRequest req) {
 
         int cnt = userDao.validation(userDetailsDto);
         if (cnt != 1) {
             m.addAttribute("msg", "아이디 혹은 이메일이 유효하지 않습니다.");
             return "findPwdForm";
         } else {
+//            SMTP.main(String[] args);
+            mailController.mailSending(req, userDetailsDto.getEmail());
             m.addAttribute("msg", "지정된 이메일로 발송했습니다");
         }
         return "loginForm";
