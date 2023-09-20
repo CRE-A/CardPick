@@ -1,0 +1,167 @@
+
+
+section#background{
+    width: 100vw;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    /*filter: blur(4px);*/
+
+
+
+}
+h1.h1 {
+    position: absolute;
+    top: 26%;
+    left: 50%;
+    color: white;
+    transform: translateX(-50%);
+    text-shadow: 0px 0px 3px rgba(0,0,0,0.61);
+
+}
+section#login {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    /*background-color: rgba(255, 0, 0, 0.31);*/
+}
+
+section#login .container {
+    width: 600px;
+    height: 530px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    /*margin-top: 200px;*/
+    /*margin-top: 60px;*/
+    /*flex-direction: column;*/
+}
+
+section#login .container h1.title{
+    font-size: 32px ;
+    margin-bottom: 30px;
+    color: lightgrey;
+}
+
+
+#msg{
+    padding-top: 80px;
+    margin-right: 220px;
+    color: lightgrey;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+section#login .container #loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    /*margin-top: 40px;*/
+}
+
+section#login .container #loginForm #loginBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 500px;
+    justify-content: space-around;
+    /*margin-top: 40px;*/
+}
+
+
+input[name=id], input[name=pwd] {
+    margin-left: 7px;
+    border: transparent;
+    background-color: transparent;
+}
+
+#loginBox1{
+    padding-left: 40px;
+}
+
+#loginBox1 .loginBox1{
+    width: 280px;
+    height: 46px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    background-color: aquamarine;
+    display: flex;
+    align-content: center;
+}
+
+.loginBox1 span{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: white;
+    align-self: center;
+    border-radius: 50%;
+    line-height: 43px;
+    margin-left: 3px;
+}
+
+.loginBox1 span i{
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    color: aquamarine;
+}
+
+
+
+
+
+#loginBox2{
+    margin-top: 15px;
+    padding-right: 60px;
+}
+
+input[name=id]:focus, input[name=pwd]:focus{
+    outline: none;
+}
+
+
+#loginBtn {
+    width:  90px;
+    height: 90px;
+    background-color: white;
+    margin-left:40px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button {
+    margin: 0 25px 0 25px;
+    background-color: white;
+    border: 2px solid lightgrey;
+    width: 160px;
+    height: 35px;
+    border-radius: 5px;
+    /*font-weight: bold;*/
+    /*color: lightgrey;*/
+}
+
+.buttons button a{
+    color: lightgrey;
+    font-weight: bold;
+}
+
+

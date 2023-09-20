@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+        		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+    <security:http pattern="/img/**" security="none"/>
+    <security:http pattern="/images/**" security="none"/>
+    <security:http pattern="/css/**" security="none"/>
+    <security:http pattern="/js/**" security="none"/>
+    <security:http>
+        <security:intercept-url pattern="/" access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/card/**" access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/user/**" access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/login/**" access="permitAll"/>
+        <security:intercept-url pattern="/register/**" access="permitAll"/>
+        <security:access-denied-handler ref="accessFailHandler"/>
+        <security:form-login login-page="/login/login"
+                             login-processing-url="/login/loginProcess"
+                             username-parameter="id"
+                             password-parameter="pwd"
+                             authentication-failure-handler-ref="loginFailHandler"
+                             authentication-success-handler-ref="loginSuccessHandler"/>
+        <security:logout logout-url="/login/logout"
+                         logout-success-url="/login/login"
+                         invalidate-session="true"
+                         delete-cookies="true"/>
+
+<!--         최대 한 개의 세션만 생성되도록     -->
+        <security:session-management invalid-session-url="/">
+            <security:concurrency-control max-sessions="3"
+                                          expired-url="/login/login"
+                                          error-if-maximum-exceeded="true"/>
+        </security:session-management>
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="userDetailService">
+            <security:password-encoder hash="bcrypt"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+</beans>
+
+
+

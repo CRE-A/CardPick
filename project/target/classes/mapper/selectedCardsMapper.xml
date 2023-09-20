@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.DAO.SelectedCardsMapper">
+
+
+    <select id="select" parameterType="String" resultType="SelectedCardsDto">
+        SELECT *
+        FROM selectedcards
+        WHERE id = #{id};
+    </select>
+
+    <insert id="insert" parameterType="SelectedCardsDto">
+        INSERT INTO selectedcards ( id, cardNo, regdate)
+        VALUES (#{id}, #{cardNo}, now());
+    </insert>
+
+    <delete id="delete" parameterType="String">
+        DELETE
+        FROM selectedcards
+        WHERE id = #{id};
+    </delete>
+
+    <delete id="deleteAll" parameterType="String">
+        DELETE
+        FROM selectedcards
+        WHERE id = #{id};
+    </delete>
+
+    <select id="count" parameterType="String" resultType="int">
+        SELECT count(*)
+        FROM selectedcards
+        WHERE id = #{id};
+    </select>
+
+</mapper>

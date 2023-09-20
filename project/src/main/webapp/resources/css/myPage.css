@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+body {
+    background: #f5f3fa;
+}
+
+section#container {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    justify-content: space-between;
+    width:600px;
+    height: 900px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+
+    /*position: relative;*/
+    /*width: 600px;*/
+    /*height: 900px;*/
+    /*position: absolute;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    /*background: white;*/
+}
+
+.return {
+    border: none;
+    background: none;
+}
+
+#footer .return i {
+    background: whitesmoke;
+    font-size: 32px;
+    color: lightgray;
+}
+
+.itemBox {
+    position: relative;
+    font-size: 20px;
+    height: 50px;
+}
+
+.itemBox .icon {
+    color: #76e7b8;
+}
+
+.info {
+    position: absolute;
+    left: 23px;
+    top: 30px;
+    font-size: 12px;
+}
+
+.message {
+    position: absolute;
+    left: 128px;
+    top: -8px;
+    font-size: 12px;
+    color: #e69d9d;
+}
+
+#mypage,
+#updatePWD,
+#updatePersonal {
+    padding-left: 50px;
+}
+
+#mypage {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#updatePWD {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.itemPwd,
+.itemPersonal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.password {
+    position: relative;
+}
+
+.password,
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+button.none,
+button.updateBtn {
+    width: 100px;
+    height: 40px;
+}
+
+button.none {
+    margin-left: 10px;
+    background-color: white;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    visibility: hidden;
+}
+
+button.updateBtn,
+button.modifyBtn {
+    margin-left: 10px;
+    background-color: white;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+}
+
+.password span,
+.password input[type="text"] {
+    margin-right: 20px;
+}
+
+.item span,
+.item input[type="text"] {
+    margin-right: 16px;
+}
+
+.password input[type="text"],
+.item input[type="text"] {
+    height: 30px;
+}
+
+section#updatePersonal {
+    margin-top: 30px;
+}
+
+.item .title {
+    width: 90px;
+}
+
+hr {
+    color: #76e7b8;
+}
+
+
+#nav{
+    width: 100%;
+    height: 80px;
+    background : white;
+}
+
+#nav div{
+    margin-top : 20px;
+    margin-left: 33px;
+}
+
+#footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-right: 3px;
+    width: 100%;
+    height: 68.5px;
+    background : lightgrey;
+}
+
+.return {
+    border:none;
+    background: none;
+}
+
+#nav .return img{
+    width: 7%;
+}
+
+#footer .return img{
+    width: 20%;
+}
+
+
