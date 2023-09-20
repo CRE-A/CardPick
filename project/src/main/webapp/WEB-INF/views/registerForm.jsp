@@ -9,8 +9,6 @@ session="false" %>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<%--    <meta name="_csrf" th:content="${_csrf.token}" />--%>
-<%--    <meta name="_csrf_header" th:content="${_csrf.headerName}" />--%>
     <title>Registration</title>
     <!-- CSS -->
     <%--
@@ -196,90 +194,7 @@ session="false" %>
     </c:if>
 
 
-<%--    <span id="resultText">msg</span>--%>
 
-    <script>
-
-      <%--    const token = $("meta[name='_csrf']").attr("content")--%>
-      <%--    const header = $("meta[name='_csrf_header']").attr("content");--%>
-      <%--    const name = $("#userName").val();--%>
-
-
-      <%--    let passCheck = true;--%>
-      <%--    let idCheck = true;--%>
-
-      <%--    function idChk() {--%>
-      <%--        const id = document.frm.id.value;--%>
-      <%--        console.log(id)--%>
-      <%--        let resultText = document.querySelector("#resultText");--%>
-
-      <%--        // if (id.indexOf('@') != -1 && id.indexOf('.com') != -1) {--%>
-      <%--        if (id.indexOf('') !== -1) {--%>
-
-      <%--            &lt;%&ndash;            <security:authorize access="isAnonymous()">&ndash;%&gt;--%>
-      <%--            $.ajax({--%>
-      <%--                type: 'POST',--%>
-      <%--                &lt;%&ndash;url:'${pageContext.request.contextPath}/member/readId',&ndash;%&gt;--%>
-      <%--                url: '<c:url value='/register/checkID'/>',--%>
-      <%--                header: {"Content-Type": "application/json"},--%>
-      <%--                dateType: 'json',--%>
-      <%--                data: {id: id},--%>
-      <%--                beforeSend : function(xhr) {--%>
-      <%--                    xhr.setRequestHeader(header, token);--%>
-      <%--                    xhr.setRequestHeader("Content-type","application/json");--%>
-      <%--                },--%>
-      <%--                success: function (result) {--%>
-      <%--                    console.log("result = " + result)--%>
-      <%--                    if (result == true) {--%>
-      <%--                        resultText.style.color = 'red'--%>
-      <%--                        resultText.innerHTML = '중복되는 아이디'--%>
-      <%--                        idCheck = true--%>
-      <%--                        inputCheck()--%>
-      <%--                    } else {--%>
-      <%--                        resultText.style.color = 'blue'--%>
-      <%--                        resultText.innerHTML = '사용가능한 아이디'--%>
-      <%--                        idCheck = false--%>
-      <%--                        inputCheck()--%>
-      <%--                    }--%>
-      <%--                }--%>
-      <%--            })--%>
-      <%--        } else {--%>
-      <%--            result.style.color = 'red'--%>
-      <%--            result.innerHTML = '일치하지 않는 형식'--%>
-      <%--        }--%>
-      <%--        &lt;%&ndash;        </security:authorize>&ndash;%&gt;--%>
-      <%--    }--%>
-
-      <%--   function inputCheck() {--%>
-      <%--       if (idCheck == false) {--%>
-      <%--           const submit = document.querySelector("#registerBtn");--%>
-      <%--           submit.disabled = false;--%>
-      <%--       } else {--%>
-      <%--           submit.disabled = true;--%>
-      <%--       }--%>
-      <%--   }--%>
-
-          // function passChk() {
-          //     const pass = document.frm.pwd.value
-          //     const passChk = document.querySelector(".user_pwd_check").value;
-          //     console.log(passChk);
-          //     let result = document.querySelector("#passResult")
-          //
-          //     if (pass == passChk) {
-          //         result.style.color = 'blue'
-          //         result.innerHTML = '일치하는 비밀번호'
-          //         passCheck = false
-          //         inputCheck()
-          //
-          //     } else {
-          //         result.style.color = 'red'
-          //         result.innerHTML = '일치하지 않는 비밀번호'
-          //
-          //         passCheck = true
-          //         inputCheck()
-          //     }
-          // }
-    </script>
 
     <script>
           $(document).ready(() => {
@@ -287,11 +202,9 @@ session="false" %>
               $("#registerBtn").on("click", () => {
 
                   let form = $("#form");
-                  alert("btn clicked")
-                  <%--form.attr("action", "<c:url value='/review/write?${_csrf.parameterName}=${_csrf.token}'/>")--%>
+                  // alert("btn clicked")
                   form.attr("action", "<c:url value='/register/addUser'/>")
                   form.attr("method", "post")
-                  // form.attr("enctype", "multipart/form-data")
                   form.submit();
 
               }); // register
@@ -306,71 +219,6 @@ session="false" %>
 
             }); // id check
 
-
-
-              // $("#chkIdBtn").on("click", () => {
-              //
-              //     alert("ChkID BTN btn clicked")
-              //     const id = document.frm.id.value;
-              //     console.log(id)
-              //     let resultText = document.querySelector("#resultText");
-              //     console.log(resultText)
-
-
-      <%--            // if (id.indexOf('@') != -1 && id.indexOf('.com') != -1) {--%>
-      <%--            if (id.indexOf('') !== -1) {--%>
-
-      <%--&lt;%&ndash;                            <security:authorize access="isAnonymous()">&ndash;%&gt;--%>
-      <%--                $.ajax({--%>
-      <%--                    type: 'POST',--%>
-      <%--                    &lt;%&ndash;url:'${pageContext.request.contextPath}/member/readId',&ndash;%&gt;--%>
-      <%--                    url: '<c:url value='/register/checkID'/>',--%>
-      <%--                    header: {"Content-Type": "application/json"},--%>
-      <%--                    dateType: 'json',--%>
-      <%--                    data: {id: id},--%>
-      <%--                    beforeSend : function(xhr) {--%>
-      <%--                        xhr.setRequestHeader(header, token);--%>
-      <%--                    },--%>
-      <%--                    success: function (result) {--%>
-      <%--                        console.log("result = " + result)--%>
-      <%--                        if (result == true) {--%>
-      <%--                            resultText.style.color = 'red'--%>
-      <%--                            resultText.innerHTML = '중복되는 아이디'--%>
-      <%--                            idCheck = true--%>
-      <%--                            inputCheck()--%>
-      <%--                        } else {--%>
-      <%--                            resultText.style.color = 'blue'--%>
-      <%--                            resultText.innerHTML = '사용가능한 아이디'--%>
-      <%--                            idCheck = false--%>
-      <%--                            inputCheck()--%>
-      <%--                        }--%>
-      <%--                    }--%>
-      <%--                })--%>
-      <%--            } else {--%>
-      <%--                result.style.color = 'red'--%>
-      <%--                result.innerHTML = '일치하지 않는 형식'--%>
-      <%--            }--%>
-      <%--&lt;%&ndash;            </security:authorize>&ndash;%&gt;--%>
-
-
-      <%--            &lt;%&ndash;let form = $("#form");&ndash;%&gt;--%>
-      <%--            &lt;%&ndash;alert("btn clicked")&ndash;%&gt;--%>
-      <%--            &lt;%&ndash;&lt;%&ndash;form.attr("action", "<c:url value='/review/write?${_csrf.parameterName}=${_csrf.token}'/>")&ndash;%&gt;&ndash;%&gt;--%>
-      <%--            &lt;%&ndash;form.attr("action", "<c:url value='/register/checkID'/>")&ndash;%&gt;--%>
-      <%--            &lt;%&ndash;form.attr("method", "post")&ndash;%&gt;--%>
-      <%--            &lt;%&ndash;// form.attr("enctype", "multipart/form-data")&ndash;%&gt;--%>
-      <%--            &lt;%&ndash;form.submit();&ndash;%&gt;--%>
-
-      <%--        }); // submit--%>
-
-      <%--        function inputCheck() {--%>
-      <%--            if (idCheck == false) {--%>
-      <%--                const submit = document.querySelector("#registerBtn");--%>
-      <%--                submit.disabled = false;--%>
-      <%--            } else {--%>
-      <%--                submit.disabled = true;--%>
-      <%--            }--%>
-      <%--        }--%>
 
           });
     </script>

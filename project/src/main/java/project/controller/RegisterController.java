@@ -14,6 +14,7 @@ import project.DAO.UserDao;
 import project.service.UserDetailService;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotNull;
 import java.net.URLEncoder;
 
 @Slf4j
@@ -27,31 +28,25 @@ public class RegisterController {
 
 
     @GetMapping("/addUser")
-    public String registerForm() {return "registerForm";
+    public String registerForm() {
+        return "registerForm";
     }
+
 
     @PostMapping("/addUser")
     public String register(UserDetailsDto userDetailsDto, Model m) {
 
         int cnt = userDetailService.registerAccount(userDetailsDto);
-        if(cnt!=1){
-            m.addAttribute("msg","회원가입에 실패하였습니다. 다시 시도해 주세요");
+        if (cnt != 1) {
+            m.addAttribute("msg", "회원가입에 실패하였습니다. 다시 시도해 주세요");
             return "registerForm";
-        }else{
-            m.addAttribute("msg","회원가입이 완료되었습니다.");
+        } else {
+            m.addAttribute("msg", "회원가입이 완료되었습니다.");
         }
 
         return "loginForm";
     }
 
-
-
-    private boolean duplicateCheck(UserDetailsDto userDetailsDto) {
-
-        UserDetailsDto userDto = userDao.select(userDetailsDto.getUsername());
-        System.out.println("DuplicateCheck // user = " + userDto);
-        return userDto==null||userDto.getUsername().equals("");
-    }
 
 
     @PostMapping("/checkID")
@@ -64,31 +59,10 @@ public class RegisterController {
             m.addAttribute("msg", "이미 사용중인 ID 입니다.");
         }
 
-        m.addAttribute("userDetailsDto",userDetailsDto);
-        m.addAttribute("id",userDetailsDto.getUsername());
+        m.addAttribute("userDetailsDto", userDetailsDto);
+        m.addAttribute("id", userDetailsDto.getUsername());
         return "registerForm";
     }
-
-
-//        System.out.println("id = " + id);
-//        if (id != null) {
-//            try {
-//                UserDetailsDto user = userDao.select(id);
-//                chk = user == null ? false : true;
-//                return chk;
-//            } catch (Exception e) {
-//                // TODO Auto-generated catch block
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        return chk;
-//    }
-
-
-
-
-
 
 
     @GetMapping("/findPwd")
@@ -97,52 +71,18 @@ public class RegisterController {
     }
 
 
+    @PostMapping("/findPwd")
+    public String findPwd(UserDetailsDto userDetailsDto, Model m) {
 
-
-//    @PostMapping("/findPwd")
-//    public void findPwd2()  {
-
-//        if (!duplicateCheck(userDetailsDto)) {
-//            String msg = URLEncoder.encode("duplicated id", "utf-8");
-//
-//            return "redirect:/register/add?msg=" + msg;
-//        }
-//
-//        log.info("RegisterController, 방금 여기 지나감   //  userDetailsDto = " + userDetailsDto);
-//        userDetailService.registerAccount(userDetailsDto);
-//        System.out.println("Register complete");
-//
-//        return "redirect:/login/login";
-//    }
-
-
-
-//
-//    @PostMapping("/CheckID")
-//    public String
-//
-
-
-//
-//    @PostMapping("/checkID")
-//    @ResponseBody
-//    public Boolean checkID(String id) {
-//        boolean chk = true;
-//
-//        System.out.println("id = " + id);
-//        if (id != null) {
-//            try {
-//                UserDetailsDto user = userDao.select(id);
-//                chk = user == null ? false : true;
-//                return chk;
-//            } catch (Exception e) {
-//                // TODO Auto-generated catch block
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        return chk;
-//    }
+        int cnt = userDao.validation(userDetailsDto);
+        if (cnt != 1) {
+            m.addAttribute("msg", "아이디 혹은 이메일이 유효하지 않습니다.");
+            return "findPwdForm";
+        } else {
+            m.addAttribute("msg", "지정된 이메일로 발송했습니다");
+        }
+        return "loginForm";
+    }
 
 
 
@@ -151,5 +91,11 @@ public class RegisterController {
 
 
 
+    private boolean duplicateCheck(UserDetailsDto userDetailsDto) {
+
+        UserDetailsDto userDto = userDao.select(userDetailsDto.getUsername());
+        System.out.println("DuplicateCheck // user = " + userDto);
+        return userDto == null || userDto.getUsername().equals("");
+    }
 
 }

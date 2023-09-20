@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+section#container {
+  width: 600px;
+  height: 900px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.box {
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.title {
+  margin-bottom: 60px;
+}
+
+.inputBox {
+  width: 500px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+}
+
+button.none,
+button.sendBtn {
+  width: 100px;
+  height: 40px;
+}
+
+button.none {
+  margin-left: 10px;
+  background-color: white;
+  border: 2px solid rgb(212, 212, 212);
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  visibility: hidden;
+}
+
+button.sendBtn {
+  margin-left: 10px;
+  background-color: white;
+  border: 2px solid rgb(212, 212, 212);
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+}
+
+input.inputitem {
+  height: 30px;
+}
+
+.item .id,
+.item .inputitem {
+  margin-left: 6px;
+}
+
+.message {
+  position: absolute;
+  left: 70px;
+  top: -18px;
+  font-size: 12px;
+  color: #e78989;
+}
+
+#form {
+  margin-bottom: 50px;
+  margin-top: 30px;
+}

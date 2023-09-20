@@ -31,6 +31,12 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int changePwd(UserDetailsDto userDetailsDto) {return session.update(namespace + "changePwd", userDetailsDto);
     }
+
+    @Override
+    public int validation(UserDetailsDto userDetailsDto) {
+        return session.selectOne(namespace + "validation",userDetailsDto);
+    }
+
     @Override
     public int changeDptPhone(UserDetailsDto userDetailsDto) {return session.update(namespace + "changeDptPhone", userDetailsDto);
     }

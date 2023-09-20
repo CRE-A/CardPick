@@ -29,6 +29,7 @@ public class UserController {
         m.addAttribute("userDetailsDto", userDetailsDto);
         m.addAttribute("id", getId(auth));
         m.addAttribute("msg", msg);
+
         return "myPage";
     }
 
@@ -40,8 +41,6 @@ public class UserController {
         userDetailsDto.setPwd(encodedPassword);
         userDetailsDto.setId(getId(auth));
 
-        System.out.println("userDetailsDto = " + userDetailsDto);
-
         int cnt = userDao.changePwd(userDetailsDto);
         if (cnt == 1) {
             m.addAttribute("msg", "비밀번호가 변경되었습니다.");
@@ -49,15 +48,12 @@ public class UserController {
             m.addAttribute("msg", "비밀번호 변경에 실패했습니다.");
         }
 
-        System.out.println("modify password succeeded");
         return "redirect:/user/main";
     }
 
 
     @PostMapping("/changeDptPhone")
     public String modifyProfile(Model m, UserDetailsDto userDetailsDto, Authentication auth) {
-
-        System.out.println("/changeDptPhone");
 
         userDetailsDto.setId(getId(auth));
         int cnt = userDao.changeDptPhone(userDetailsDto);
@@ -67,7 +63,6 @@ public class UserController {
             m.addAttribute("msg", "프로필 수정에 실패했습니다.");
         }
 
-        System.out.println("modify profile succeeded");
         return "redirect:/user/main";
     }
 

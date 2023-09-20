@@ -48,6 +48,13 @@
         FROM user
     </delete>
 
+    <select id="validation" parameterType="userDetailsDto" resultType="int">
+        SELECT count(*)
+        FROM user
+        WHERE id=#{id}
+        AND email=#{email}
+    </select>
+
     <select id="count" parameterType="String" resultType="int">
         SELECT count(*)
         FROM user

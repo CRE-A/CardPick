@@ -20,4 +20,6 @@ public interface UserDao {
     UserDetailsDto selectUserINFO(String id);
 
     int changePwd(UserDetailsDto userDetailsDto);
+
+    int validation(UserDetailsDto userDetailsDto);
 }
