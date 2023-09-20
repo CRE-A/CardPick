@@ -64,12 +64,53 @@ public class RegisterController {
     }
 
 
+    @PostMapping("/checkID")
+    public String checkID(UserDetailsDto userDetailsDto, Model m) {
+        System.out.println("/register/checkID");
+        System.out.println("userDetailsDto = " + userDetailsDto);
+        int cnt = userDao.count(userDetailsDto.getUsername());
+        System.out.println("cnt = " + cnt);
+
+        if (cnt == 0) {
+            m.addAttribute("msg", "사용 가능한 ID 입니다.");
+        } else {
+            m.addAttribute("msg", "이미 사용중인 ID 입니다.");
+        }
+
+        m.addAttribute("userDetailsDto",userDetailsDto);
+        m.addAttribute("id",userDetailsDto.getUsername());
+        return "registerForm";
+    }
+
+
+//        System.out.println("id = " + id);
+//        if (id != null) {
+//            try {
+//                UserDetailsDto user = userDao.select(id);
+//                chk = user == null ? false : true;
+//                return chk;
+//            } catch (Exception e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        return chk;
+//    }
+
+
+
+
+
 
 
     @GetMapping("/findPwd")
     public String findPwd() {
         return "findPwdForm";
     }
+
+
+
 
 //    @PostMapping("/findPwd")
 //    public void findPwd2()  {
@@ -95,26 +136,26 @@ public class RegisterController {
 //
 
 
-
-    @PostMapping("/checkID")
-    @ResponseBody
-    public Boolean checkID(String id) {
-        boolean chk = true;
-
-        System.out.println("id = " + id);
-        if (id != null) {
-            try {
-                UserDetailsDto user = userDao.select(id);
-                chk = user == null ? false : true;
-                return chk;
-            } catch (Exception e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }
-
-        return chk;
-    }
+//
+//    @PostMapping("/checkID")
+//    @ResponseBody
+//    public Boolean checkID(String id) {
+//        boolean chk = true;
+//
+//        System.out.println("id = " + id);
+//        if (id != null) {
+//            try {
+//                UserDetailsDto user = userDao.select(id);
+//                chk = user == null ? false : true;
+//                return chk;
+//            } catch (Exception e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        return chk;
+//    }
 
 
 

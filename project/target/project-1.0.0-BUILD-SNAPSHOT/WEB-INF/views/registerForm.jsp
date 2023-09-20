@@ -37,7 +37,7 @@ session="false" %>
           </a>
         </button>
       </section>
-      <form action="" name="frm" method="post">
+      <form action="" name="frm" method="post" id="form">
         <input
           type="hidden"
           name="${_csrf.parameterName}"
@@ -53,7 +53,7 @@ session="false" %>
                 <span>이름:</span>
               </div>
               <span class="requestField">이름을 입력해주세요.</span>
-              <input required placeholder="이름" type="text" name="name" />
+              <input required placeholder="이름" type="text" name="name" valud="${userDetailsDto.name}"/>
             </div>
             <button class="none"></button>
           </li>
@@ -66,13 +66,13 @@ session="false" %>
                 <span>아이디:</span>
               </div>
               <span class="requestField">아이디를 입력해주세요.</span>
-              <input required placeholder="아이디" type="text" name="id" />
+              <input required placeholder="아이디" type="text" name="id" value="${id}" />
             </div>
             <button
               class="checkBtn"
               id="chkIdBtn"
               type="button"
-              onclick="idChk()"
+<%--              onclick="idChk()"--%>
             >
               체크아이디
             </button>
@@ -106,7 +106,7 @@ session="false" %>
                 <span>이메일:</span>
               </div>
               <span class="requestField">이메일을 입력해주세요.</span>
-              <input required placeholder="이메일" type="text" name="email" />
+              <input required placeholder="이메일" type="text" name="email" value="${userDetailsDto.email}" />
             </div>
             <button class="none"></button>
           </li>
@@ -119,7 +119,7 @@ session="false" %>
                 <span>소 속:</span>
               </div>
               <span class="requestField">소속을 입력해주세요.</span>
-              <input required placeholder="소속" type="text" name="dpt" />
+              <input required placeholder="소속" type="text" name="dpt" value="${userDetailsDto.dpt}" />
             </div>
             <button class="none"></button>
           </li>
@@ -132,7 +132,7 @@ session="false" %>
                 <span>전화번호:</span>
               </div>
               <span class="requestField">전화번호를 입력해주세요.</span>
-              <input required placeholder="전화번호" type="text" name="phone" />
+              <input required placeholder="전화번호" type="text" name="phone" value="${userDetailsDto.phone}" />
             </div>
             <button class="none"></button>
           </li>
@@ -294,7 +294,17 @@ session="false" %>
                   // form.attr("enctype", "multipart/form-data")
                   form.submit();
 
-              }); // submit
+              }); // register
+
+
+              $("#chkIdBtn").on("click", function () {
+                alert("chk btn clicked")
+                let form = $("#form");
+                form.attr("action", "<c:url value='/register/checkID'/>")
+                form.attr("method", "post");
+                form.submit();
+
+            }); // id check
 
 
 

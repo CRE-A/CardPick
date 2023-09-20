@@ -15,7 +15,7 @@ public interface UserDao {
 
     int deleteAll();
 
-    int count();
+    int count(String id);
 
     UserDetailsDto selectUserINFO(String id);
 

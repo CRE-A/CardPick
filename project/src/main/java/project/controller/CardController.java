@@ -31,7 +31,7 @@ public class CardController {
     @GetMapping("/select")
     public String selectCard(Authentication auth, Model m, String no) throws Exception {
 
-        String ind = null;
+        String ind;
 
         // 카드 9개 읽은 상태면, 뒤로가기
         if (selectedCardsDao.count(getId(auth)) >= 9) {

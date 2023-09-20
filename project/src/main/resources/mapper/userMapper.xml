@@ -48,9 +48,10 @@
         FROM user
     </delete>
 
-    <select id="count" resultType="int">
+    <select id="count" parameterType="String" resultType="int">
         SELECT count(*)
         FROM user
+        WHERE id=#{id}
     </select>
 
 

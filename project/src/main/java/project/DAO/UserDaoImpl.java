@@ -46,8 +46,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int count() {
-        return session.selectOne(namespace + "count");
+    public int count(String id) {
+        return session.selectOne(namespace + "count",id);
     }
 
 
