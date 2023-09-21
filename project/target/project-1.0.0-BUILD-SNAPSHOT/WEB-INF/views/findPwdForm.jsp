@@ -15,6 +15,11 @@
 </head>
 <body>
 <section id="container">
+    <section id="nav">
+        <div class="return" onclick="location.href='<c:url value='/login/login'/>'">
+            <img src="<c:url value='/iconImg/goback.png'/>" alt=""/>
+        </div>
+    </section>
     <div class="box">
         <div class="title">
             회원 등록시 입력한 아이디, 이메일을 입력해주세요
