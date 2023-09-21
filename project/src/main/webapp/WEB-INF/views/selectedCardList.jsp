@@ -84,11 +84,6 @@
         })
     };
 
-    // function IconByCards() {
-    //         alert("삭제 아이콘이 뜹니다");
-    // };
-
-
 
 
 </script>
