@@ -23,5 +23,7 @@ public interface UserDao {
 
     int changePwd(UserDetailsDto userDetailsDto);
 
+    String checkPwd(String id);
+
     int validation(UserDetailsDto userDetailsDto);
 }

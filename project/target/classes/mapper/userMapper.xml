@@ -36,9 +36,15 @@
         WHERE id = #{id};
     </update>
 
+    <select id="checkPwd" parameterType="String" resultType="String">
+        SELECT pwd
+        FROM user
+        WHERE id = #{id}
+    </select>
+
     <update id="changeDptPhone" parameterType="UserDetailsDto">
         UPDATE user
-        SET dpt = #{dpt},
+        SET dpt   = #{dpt},
             phone = #{phone}
         WHERE id = #{id};
     </update>
@@ -57,14 +63,14 @@
     <select id="validation" parameterType="userDetailsDto" resultType="int">
         SELECT count(*)
         FROM user
-        WHERE id=#{id}
-        AND email=#{email}
+        WHERE id = #{id}
+          AND email = #{email}
     </select>
 
     <select id="count" parameterType="String" resultType="int">
         SELECT count(*)
         FROM user
-        WHERE id=#{id}
+        WHERE id = #{id}
     </select>
 
 

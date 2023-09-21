@@ -1,6 +1,5 @@
 package project.DAO;
 
-import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -39,6 +38,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int changePwd(UserDetailsDto userDetailsDto) {return session.update(namespace + "changePwd", userDetailsDto);
+    }
+
+    @Override
+    public String checkPwd(String id) {
+        return session.selectOne(namespace + "checkPwd",id);
     }
 
     @Override

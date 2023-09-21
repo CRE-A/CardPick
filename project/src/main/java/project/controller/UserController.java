@@ -1,6 +1,7 @@
 package project.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,10 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.DAO.UserDao;
 import project.DTO.UserDetailsDto;
 import project.DTO.UserDto;
+import project.service.UserDetailService;
 
 @Controller
 @RequestMapping("/user")
@@ -26,10 +27,8 @@ public class UserController {
     @GetMapping("/main")
     public String myPage(Model m, Authentication auth, String msg) {
 
-//        UserDetailsDto userDetailsDto = userDao.select(getId(auth));
         UserDto userDto = userDao.selectUserInfo(getId(auth));
         m.addAttribute("userDto", userDto);
-//        m.addAttribute("id", getId(auth));
         m.addAttribute("msg", msg);
 
         return "myPage";
@@ -37,11 +36,18 @@ public class UserController {
 
 
     @PostMapping("/changePwd")
-    public String changePwd(Model m, UserDetailsDto userDetailsDto, Authentication auth) {
+    public String changePwd(Model m, UserDetailsDto userDetailsDto) {
+        System.out.println("userDetailsDto = " + userDetailsDto);
+
+        //유효성 검사
+        if (!(isAthenticated(userDetailsDto))) {
+            m.addAttribute("msg", "현재 비밀번호를 다시 입력해 주세요.");
+            return "redirect:/user/main";
+        }
+
 
         String encodedPassword = bCryptPasswordEncoder.encode(userDetailsDto.getPassword());
         userDetailsDto.setPwd(encodedPassword);
-        userDetailsDto.setId(getId(auth));
 
         int cnt = userDao.changePwd(userDetailsDto);
         if (cnt == 1) {
@@ -72,6 +78,15 @@ public class UserController {
     private String getId(Authentication auth) {
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         return userDetails.getUsername();
+    }
+
+    private boolean isAthenticated(UserDetailsDto userDetailsDto) {
+
+        String checkPwd = userDao.checkPwd(userDetailsDto.getUsername());
+        String pwd = userDetailsDto.getCurrentPwd();
+        boolean validation = bCryptPasswordEncoder.matches(pwd, checkPwd);
+
+        return validation;
     }
 
 }

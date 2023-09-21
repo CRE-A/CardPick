@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
 <!DOCTYPE html>
@@ -31,16 +31,16 @@
         <div class="itemBox">
             <span class="icon">⊙</span>
             <span class="title">이름:</span>
-<%--            <span class="info">사용가능 기간(2023.1.1~2023.1.1)</span>--%>
-<%--            <span class="info">사용가능 기간(${userDto.regdate}~2023.1.1)</span>--%>
-<%--            <span class="name">임휘성</span>--%>
+            <%--            <span class="info">사용가능 기간(2023.1.1~2023.1.1)</span>--%>
+            <%--            <span class="info">사용가능 기간(${userDto.regdate}~2023.1.1)</span>--%>
+            <%--            <span class="name">임휘성</span>--%>
             <span class="name">${userDto.name}</span>
         </div>
         <div class="itemBox">
             <span class="icon">⊙</span>
             <span class="title">아이디:</span>
-<%--            <span class="name">testId</span>--%>
-<%--            <span class="name">${userDetailsDto.id}</span>--%>
+            <%--            <span class="name">testId</span>--%>
+            <%--            <span class="name">${userDetailsDto.id}</span>--%>
             <span class="name">${userDto.id}</span>
         </div>
         <div class="itemBox">
@@ -59,7 +59,7 @@
             <div class="itemPwd">
                 <div class="password">
                     <span class="title">기존 패스워드 : </span>
-                    <input type="text" required/>
+                    <input type="text" name="currentPwd" required/>
                     <span class="message">비밀번호를 입력하세요</span>
                 </div>
                 <button class="none">패스워드 변경</button>
@@ -77,6 +77,7 @@
                     <input type="text" name="pwd2" required/>
                 </div>
                 <button class="updateBtn" type="button" id="changePwdBtn">패스워드 변경</button>
+                <input type="hidden" name="id" value="${userDto.id}"/>
             </div>
         </form>
     </section>
@@ -115,7 +116,6 @@
         </button>
     </section>
 </section>
-
 
 
 <c:if test="${msg!=null}">
@@ -199,10 +199,6 @@
     }
 
 
-
-
-
-
 </script>
 
 <%--JQuery--%>
@@ -210,7 +206,7 @@
     $(document).ready(() => {
 
         $("#changePwdBtn").on("click", function () {
-            alert("btn clicked")
+            // alert("btn clicked")
             let form = $("#pwdForm");
             form.attr("action", "<c:url value="/user/changePwd?${_csrf.parameterName}=${_csrf.token}"/>");
             form.attr("method", "post");
@@ -219,17 +215,14 @@
         }) //암호(pwd) 수정
 
 
-
-
         $("#changeDptPhoneBtn").on("click", function () {
-            alert("btn clicked")
+            // alert("btn clicked")
             let form = $("#modifyForm");
             form.attr("action", "<c:url value="/user/changeDptPhone?${_csrf.parameterName}=${_csrf.token}"/>");
             form.attr("method", "post");
             form.submit();
 
         }) //부서,전화번호(dpt,phone) 수정
-
 
 
     }); // ready()

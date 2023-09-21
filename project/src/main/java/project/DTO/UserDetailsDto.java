@@ -20,7 +20,7 @@ public class UserDetailsDto implements UserDetails {
     private Date regdate;
     private String authority;
     private Integer enabled;
-
+    private String currentPwd;
 
 
     @Override
@@ -101,6 +101,22 @@ public class UserDetailsDto implements UserDetails {
         this.phone = phone;
     }
 
+    public String getCurrentPwd() {
+        return currentPwd;
+    }
+
+    public void setCurrentPwd(String currentPwd) {
+        this.currentPwd = currentPwd;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
     @Override
     public String toString() {
         return "UserDetailsDto{" +
@@ -113,7 +129,7 @@ public class UserDetailsDto implements UserDetails {
                 ", regdate=" + regdate +
                 ", authority='" + authority + '\'' +
                 ", enabled=" + enabled +
+                ", currentPwd='" + currentPwd + '\'' +
                 '}';
     }
-
 }

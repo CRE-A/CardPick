@@ -15,6 +15,12 @@ img {
     vertical-align: top;
 }
 
+
+.cards li div img{
+    border : 2px outset rgba(213, 208, 208, 0.67);
+}
+
+
 #hidden_img{
     visibility: hidden;
 }
