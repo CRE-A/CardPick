@@ -32,7 +32,6 @@ public class SelectedCardsDaoImpl implements SelectedCardsDao {
 
     @Override
     public int deleteAll(String id) throws Exception {
-        System.out.println("dao까지 옴 //  id = " + id);
         return session.delete(namespace + "deleteAll", id);
     }
 
