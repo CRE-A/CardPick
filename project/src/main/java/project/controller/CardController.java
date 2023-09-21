@@ -78,6 +78,21 @@ public class CardController {
     }
 
 
+    @GetMapping("/prevPage")
+    public String goPrevPage(String no, Model m){
+
+        String ind ="";
+
+        if (no.length() == 4) {
+            ind = no.substring(0, 2);
+        } else {
+            ind = no.substring(0, 1);
+        }
+        m.addAttribute("ind", ind);
+        return "cardList";
+
+    }
+
     private String getId(Authentication auth) {
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         return userDetails.getUsername();

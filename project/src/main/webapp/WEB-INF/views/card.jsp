@@ -17,9 +17,10 @@
 <body>
 <div class="wrap__card">
     <section id="nav">
+        <div class="return" >
+            <img src="<c:url value='/iconImg/goback.png'/>" onclick="location.href='<c:url value='/card/prevPage?no=${No}'/>'"   alt=""/>
+            <img src="<c:url value='/iconImg/bottleImg.png'/>" onclick="location.href='<c:url value='/'/>'" alt=""/>
         <div class="return" onclick="location.href='<c:url value='/'/>'">
-            <img src="<c:url value='/iconImg/goback.png'/>" alt=""/>
-        </div>
     </section>
     <div class="card__inner">
         <ul class="cards">

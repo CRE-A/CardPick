@@ -23,8 +23,19 @@
 
 <section id="container">
     <section id="nav">
-        <div class="return" onclick="location.href='<c:url value='/'/>'">
-            <img src="<c:url value='/iconImg/goback.png'/>" alt=""/>
+        <div class="return" >
+            <img src="<c:url value='/iconImg/goback.png'/>" onclick="location.href='<c:url value='/'/>'" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
+            <img src="<c:url value='/iconImg/logout.png'/>" onclick="location.href='<c:url value='/login/logout'/>'" alt=""/>
         </div>
     </section>
     <section id="mypage">
@@ -33,14 +44,11 @@
             <span class="title">이름:</span>
             <%--            <span class="info">사용가능 기간(2023.1.1~2023.1.1)</span>--%>
             <%--            <span class="info">사용가능 기간(${userDto.regdate}~2023.1.1)</span>--%>
-            <%--            <span class="name">임휘성</span>--%>
             <span class="name">${userDto.name}</span>
         </div>
         <div class="itemBox">
             <span class="icon">⊙</span>
             <span class="title">아이디:</span>
-            <%--            <span class="name">testId</span>--%>
-            <%--            <span class="name">${userDetailsDto.id}</span>--%>
             <span class="name">${userDto.id}</span>
         </div>
         <div class="itemBox">

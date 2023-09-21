@@ -137,20 +137,6 @@
         })
     }
 
-    <%--$('#deleteAll').on("click", function(){--%>
-    <%--    alert("삭제 진행 안함")--%>
-    <%--    if(confirm('리스트 전체를 삭제합니다. 진행하시겠습니까?')){--%>
-    <%--        location.href='<c:url value='/card/deleteAll'/>--%>
-    <%--    }--%>
-    <%--});--%>
-
-    <%--function deleteAll(){--%>
-    <%--    alert("삭제 진행 안함")--%>
-    <%--    if(confirm('리스트 전체를 삭제합니다. 진행하시겠습니까?')){--%>
-    <%--        location.href='<c:url value='/card/deleteAll'/>--%>
-    <%--    }--%>
-    <%--}--%>
-
 </script>
 
 </body>
