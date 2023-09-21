@@ -37,7 +37,6 @@ public class UserController {
 
     @PostMapping("/changePwd")
     public String changePwd(Model m, UserDetailsDto userDetailsDto) {
-        System.out.println("userDetailsDto = " + userDetailsDto);
 
         //유효성 검사
         if (!(isAthenticated(userDetailsDto))) {
@@ -48,7 +47,6 @@ public class UserController {
 
         String encodedPassword = bCryptPasswordEncoder.encode(userDetailsDto.getPassword());
         userDetailsDto.setPwd(encodedPassword);
-
         int cnt = userDao.changePwd(userDetailsDto);
         if (cnt == 1) {
             m.addAttribute("msg", "비밀번호가 변경되었습니다.");
@@ -84,9 +82,7 @@ public class UserController {
 
         String checkPwd = userDao.checkPwd(userDetailsDto.getUsername());
         String pwd = userDetailsDto.getCurrentPwd();
-        boolean validation = bCryptPasswordEncoder.matches(pwd, checkPwd);
-
-        return validation;
+        return bCryptPasswordEncoder.matches(pwd, checkPwd);
     }
 
 }

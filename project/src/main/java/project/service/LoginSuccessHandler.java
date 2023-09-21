@@ -34,7 +34,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         //경우2 : 로그인 인증을 위해 Spring Security 가 요청을 가로챈 경우
         RequestCache requestCache = new HttpSessionRequestCache();
         SavedRequest savedRequest = requestCache.getRequest(request, response);
-        if(savedRequest!=null) {
+        if (savedRequest != null) {
             URI = savedRequest.getRedirectUrl();
         }
 

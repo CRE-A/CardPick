@@ -16,29 +16,29 @@ public class SelectedCardsDaoImpl implements SelectedCardsDao {
 
 
     @Override
-    public List<SelectedCardsDto> select(String id) throws Exception{
-        System.out.println("selectedCardsMapper // id = " + id);
+    public List<SelectedCardsDto> select(String id) throws Exception {
         return session.selectList(namespace + "select", id);
     }
 
     @Override
-    public int insert(SelectedCardsDto selectedCardsDto) throws Exception{
-        return session.insert(namespace + "insert", selectedCardsDto);  }
+    public int insert(SelectedCardsDto selectedCardsDto) throws Exception {
+        return session.insert(namespace + "insert", selectedCardsDto);
+    }
 
     @Override
-    public int delete(String id) throws Exception{
+    public int delete(String id) throws Exception {
         return session.delete(namespace + "delete", id);
     }
 
     @Override
-    public int deleteAll(String id) throws Exception{
+    public int deleteAll(String id) throws Exception {
         System.out.println("dao까지 옴 //  id = " + id);
-        return session.delete(namespace + "deleteAll",id);
+        return session.delete(namespace + "deleteAll", id);
     }
 
     @Override
-    public int count(String id) throws Exception{
+    public int count(String id) throws Exception {
         return session.selectOne(namespace + "count", id);
     }
 
-    }
+}

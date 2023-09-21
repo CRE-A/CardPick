@@ -14,7 +14,10 @@ public class UserDto {
     private String authority;
     private Integer enabled;
 
-    UserDto(){};
+    UserDto() {
+    }
+
+    ;
 
     public String getId() {
         return id;

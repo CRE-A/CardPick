@@ -7,6 +7,7 @@ public interface UserDao {
     int insert(UserDetailsDto userDetailsDto);
 
     UserDetailsDto select(String id);
+
     UserDto selectUserInfo(String id);
 
     int update(UserDetailsDto userDetailsDto);

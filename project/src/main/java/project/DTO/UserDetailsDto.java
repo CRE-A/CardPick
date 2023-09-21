@@ -66,7 +66,7 @@ public class UserDetailsDto implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return enabled==1?true:false;
+        return enabled == 1 ? true : false;
     }
 
     public String getName() {

@@ -31,7 +31,7 @@ public class CardController {
     @GetMapping("/select")
     public String selectCard(Authentication auth, Model m, String no) throws Exception {
 
-        String ind;
+        String ind = "";
 
         // 카드 9개 읽은 상태면, 뒤로가기
         if (selectedCardsDao.count(getId(auth)) >= 9) {
@@ -47,8 +47,7 @@ public class CardController {
         }
 
         // 읽은 카드는 DB(tbl_selectedCards)에 INSERT
-        SelectedCardsDto selectedCardsDto = new SelectedCardsDto(getId(auth), no);
-        selectedCardsDao.insert(selectedCardsDto);
+        selectedCardsDao.insert(new SelectedCardsDto(getId(auth), no));
         m.addAttribute("No", no);
         return "card";
     }

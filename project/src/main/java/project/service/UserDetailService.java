@@ -30,9 +30,8 @@ public class UserDetailService implements UserDetailsService {
     }
 
 
-
     // Registration // 회원이 입력한 pwd 를 암호화해서 db에 저장
-    public int registerAccount(UserDetailsDto userDetailsDto){
+    public int registerAccount(UserDetailsDto userDetailsDto) {
         String encodedPassword = bCryptPasswordEncoder.encode(userDetailsDto.getPassword());
         userDetailsDto.setPwd(encodedPassword);
         return userDao.insert(userDetailsDto);

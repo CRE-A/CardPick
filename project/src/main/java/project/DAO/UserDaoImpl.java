@@ -14,7 +14,6 @@ public class UserDaoImpl implements UserDao {
     private static String namespace = "project.DAO.UserMapper.";
 
 
-
     @Override
     public UserDetailsDto select(String id) {
         return session.selectOne(namespace + "select", id);
@@ -37,21 +36,23 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int changePwd(UserDetailsDto userDetailsDto) {return session.update(namespace + "changePwd", userDetailsDto);
+    public int changePwd(UserDetailsDto userDetailsDto) {
+        return session.update(namespace + "changePwd", userDetailsDto);
     }
 
     @Override
     public String checkPwd(String id) {
-        return session.selectOne(namespace + "checkPwd",id);
+        return session.selectOne(namespace + "checkPwd", id);
     }
 
     @Override
     public int validation(UserDetailsDto userDetailsDto) {
-        return session.selectOne(namespace + "validation",userDetailsDto);
+        return session.selectOne(namespace + "validation", userDetailsDto);
     }
 
     @Override
-    public int changeDptPhone(UserDetailsDto userDetailsDto) {return session.update(namespace + "changeDptPhone", userDetailsDto);
+    public int changeDptPhone(UserDetailsDto userDetailsDto) {
+        return session.update(namespace + "changeDptPhone", userDetailsDto);
     }
 
     @Override
@@ -66,7 +67,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int count(String id) {
-        return session.selectOne(namespace + "count",id);
+        return session.selectOne(namespace + "count", id);
     }
 
 
@@ -75,10 +76,6 @@ public class UserDaoImpl implements UserDao {
     public UserDetailsDto selectUserINFO(String id) {
         return session.selectOne(namespace + "selectUserINFO", id);
     }
-
-
-
-
 
 
 }

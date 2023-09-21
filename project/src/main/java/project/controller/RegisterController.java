@@ -52,13 +52,13 @@ public class RegisterController {
     }
 
 
-
     @PostMapping("/checkID")
     public String checkID(UserDto userDto, Model m) {
 
         int cnt = userDao.count(userDto.getId());
         if (cnt == 0) {
             m.addAttribute("msg", "사용 가능한 ID 입니다.");
+            m.addAttribute("chk", "true");
         } else {
             m.addAttribute("msg", "이미 사용중인 ID 입니다.");
         }
@@ -88,12 +88,6 @@ public class RegisterController {
         }
         return "loginForm";
     }
-
-
-
-
-
-
 
 
     private boolean duplicateCheck(UserDetailsDto userDetailsDto) {
