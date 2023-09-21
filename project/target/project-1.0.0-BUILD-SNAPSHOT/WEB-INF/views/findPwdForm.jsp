@@ -27,7 +27,7 @@
             />
             <div class="inputBox">
                 <div class="item">
-                    <span class="message">아이디를 입력해주세요</span>
+<%--                    <span class="message">아이디를 입력해주세요</span>--%>
                     <span class="id">아이디:</span>
                     <input class="inputitem" type="text" required name="id"/>
                 </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="inputBox">
                 <div class="item">
-                    <span class="message">이메일을 입력해주세요</span>
+<%--                    <span class="message">이메일을 입력해주세요</span>--%>
                     <span class="id">이메일:</span>
                     <input class="inputitem" type="text" required name="email"/>
                 </div>
