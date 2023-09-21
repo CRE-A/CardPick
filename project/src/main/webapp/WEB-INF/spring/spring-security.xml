@@ -32,7 +32,7 @@
 
 <!--         최대 한 개의 세션만 생성되도록     -->
         <security:session-management invalid-session-url="/">
-            <security:concurrency-control max-sessions="3"
+            <security:concurrency-control max-sessions="1"
                                           expired-url="/login/login"
                                           error-if-maximum-exceeded="true"/>
         </security:session-management>
