@@ -31,15 +31,12 @@ public class CardController {
     @GetMapping("/select")
     public String selectCard(Authentication auth, Model m, String no) throws Exception {
 
-        String ind = "";
 
         // 카드 9개 읽은 상태면, 뒤로가기
         if (selectedCardsDao.count(getId(auth)) >= 9) {
-            if (no.length() == 4) {
-                ind = no.substring(0, 2);
-            } else {
-                ind = no.substring(0, 1);
-            }
+
+
+            String ind = getIndex(no);
 
             m.addAttribute("ind", ind);
             m.addAttribute("msg", "9장을 모두 골랐습니다. 카드 삭제 후 이용해 주세요");
@@ -81,13 +78,10 @@ public class CardController {
     @GetMapping("/prevPage")
     public String goPrevPage(String no, Model m) {
 
-        String ind = "";
 
-        if (no.length() == 4) {
-            ind = no.substring(0, 2);
-        } else {
-            ind = no.substring(0, 1);
-        }
+
+        String ind = getIndex(no);
+
         m.addAttribute("ind", ind);
         return "cardList";
 
@@ -96,6 +90,17 @@ public class CardController {
     private String getId(Authentication auth) {
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         return userDetails.getUsername();
+    }
+
+    private String getIndex(String no){
+        String ind = "";
+
+        if (no.length() == 4) {
+            ind = no.substring(0, 2);
+        } else {
+            ind = no.substring(0, 1);
+        }
+        return ind;
     }
 
 }
