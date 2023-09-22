@@ -10,6 +10,7 @@
 
     <security:http pattern="/img/**" security="none"/>
     <security:http pattern="/images/**" security="none"/>
+    <security:http pattern="/iconImg/**" security="none"/>
     <security:http pattern="/css/**" security="none"/>
     <security:http pattern="/js/**" security="none"/>
     <security:http>

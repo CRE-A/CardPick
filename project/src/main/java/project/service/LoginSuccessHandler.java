@@ -19,7 +19,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
 
         System.out.println("successfully logined");
-        String URI = null;
+        String URI = "";
 
 
 //        //경우1 : 사용자가 직접 로그인 버튼을 누른 경우 (혹은 로그인에 동의한 경우)

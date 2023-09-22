@@ -35,7 +35,7 @@
             <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
             <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
             <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/logout.png'/>" onclick="location.href='<c:url value='/login/logout'/>'" alt=""/>
+            <img src="<c:url value='/iconImg/logout4.png'/>" onclick="location.href='<c:url value='/login/logout'/>'" alt=""/>
         </div>
     </section>
     <section id="mypage">

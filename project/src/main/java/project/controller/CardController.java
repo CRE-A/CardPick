@@ -79,9 +79,9 @@ public class CardController {
 
 
     @GetMapping("/prevPage")
-    public String goPrevPage(String no, Model m){
+    public String goPrevPage(String no, Model m) {
 
-        String ind ="";
+        String ind = "";
 
         if (no.length() == 4) {
             ind = no.substring(0, 2);
