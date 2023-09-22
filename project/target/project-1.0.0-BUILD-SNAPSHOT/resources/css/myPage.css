@@ -41,6 +41,10 @@ section#container {
     background: none;
 }
 
+#nav .return img{
+    background: none;
+}
+
 #footer .return i {
     background: whitesmoke;
     font-size: 32px;
