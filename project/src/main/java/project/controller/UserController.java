@@ -58,6 +58,19 @@ public class UserController {
     }
 
 
+
+    @PostMapping("/updatePWD")
+    public void updateTmpPassword(String id, String TmpPassword) {
+
+        String encodedPassword = bCryptPasswordEncoder.encode(TmpPassword);
+        UserDetailsDto userDetailsDto = new UserDetailsDto();
+        userDetailsDto.setPwd(encodedPassword);
+        userDetailsDto.setId(id);
+
+        int cnt = userDao.changePwd(userDetailsDto);
+    }
+
+
     @PostMapping("/changeDptPhone")
     public String modifyProfile(Model m, UserDetailsDto userDetailsDto, Authentication auth) {
 

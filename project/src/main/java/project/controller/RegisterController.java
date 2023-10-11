@@ -82,9 +82,12 @@ public class RegisterController {
             m.addAttribute("msg", "아이디 혹은 이메일이 유효하지 않습니다.");
             return "findPwdForm";
         } else {
-//            SMTP.main(String[] args);
-            mailController.mailSending(req, userDetailsDto.getEmail());
-            m.addAttribute("msg", "지정된 이메일로 발송했습니다");
+            try{
+                mailController.mailSending(userDetailsDto.getId(), userDetailsDto.getEmail());
+                m.addAttribute("msg", "지정된 이메일로 발송했습니다");
+            } catch (Exception e){
+                m.addAttribute("msg","메일 발송에 실패하였습니다.");
+            }
         }
         return "loginForm";
     }
