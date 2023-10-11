@@ -67,7 +67,7 @@ public class UserController {
         userDetailsDto.setPwd(encodedPassword);
         userDetailsDto.setId(id);
 
-        int cnt = userDao.changePwd(userDetailsDto);
+        userDao.changePwd(userDetailsDto);
     }
 
 
