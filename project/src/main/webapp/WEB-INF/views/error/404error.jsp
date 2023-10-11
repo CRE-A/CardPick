@@ -7,7 +7,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>project-404</title>
+    <title>404</title>
     <style type="text/css">
         .btn {
             cursor: pointer;

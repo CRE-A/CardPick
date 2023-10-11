@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>project - ERROR!</title>
+    <title>ERROR</title>
     <style type="text/css">
         .btn {
             cursor: pointer;
