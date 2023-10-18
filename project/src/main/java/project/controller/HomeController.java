@@ -1,8 +1,7 @@
 package project.controller;
 
-import org.springframework.security.core.Authentication;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +11,9 @@ import java.io.IOException;
 
 // 이하 HOME 에 대한 모든 내용
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
+
 
 
     @RequestMapping("/")
@@ -22,9 +23,11 @@ public class HomeController {
 
 
     @RequestMapping("/referer")
-    public void gobackToReferer(HttpServletRequest req, HttpServletResponse response) throws IOException {
+    public void goBackToReferer(HttpServletRequest req, HttpServletResponse response) throws IOException {
         String referer = req.getHeader("Referer");
         response.sendRedirect(referer);
     }
+
+
 }
 

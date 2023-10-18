@@ -17,6 +17,17 @@
         WHERE id = #{id};
     </select>
 
+
+    <select id="selectAll" resultType="UserDto">
+        SELECT *
+        FROM user
+        WHERE AUTHORITY != 'ROLE_ADMIN'
+        ORDER BY ID
+        LIMIT 15;
+
+    </select>
+
+
     <insert id="insert" parameterType="UserDetailsDto">
         INSERT INTO user (id, pwd, name, email, dpt, phone, regdate)
         VALUES (#{id}, #{pwd}, #{name}, #{email}, #{dpt}, #{phone}, now());
@@ -46,6 +57,12 @@
         UPDATE user
         SET dpt   = #{dpt},
             phone = #{phone}
+        WHERE id = #{id};
+    </update>
+
+    <update id="changeEnabled" parameterType="map">
+        UPDATE user
+        SET enabled = #{enabled}
         WHERE id = #{id};
     </update>
 

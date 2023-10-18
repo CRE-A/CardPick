@@ -3,18 +3,26 @@ package project.DAO;
 import project.DTO.UserDetailsDto;
 import project.DTO.UserDto;
 
+import java.util.List;
+
 public interface UserDao {
-    int insert(UserDetailsDto userDetailsDto);
 
     UserDetailsDto select(String id);
 
     UserDto selectUserInfo(String id);
 
+    List<UserDto> selectAll();
+
+    int insert(UserDetailsDto userDetailsDto);
+
     int update(UserDetailsDto userDetailsDto);
 
     int changeDptPhone(UserDetailsDto userDetailsDto);
 
-    int delete(String user_email);
+    int changeEnabled(UserDetailsDto userDetailsDto);
+
+
+    int deleteUserAccount(String id);
 
     int deleteAll();
 

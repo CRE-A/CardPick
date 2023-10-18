@@ -113,8 +113,12 @@ public class UserDetailsDto implements UserDetails {
         return id;
     }
 
-    public String getPwd() {
-        return pwd;
+    public Integer getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Integer enabled) {
+        this.enabled = enabled;
     }
 
     @Override

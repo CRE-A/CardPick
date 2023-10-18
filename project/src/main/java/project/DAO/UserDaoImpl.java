@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 import project.DTO.UserDetailsDto;
 import project.DTO.UserDto;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class UserDaoImpl implements UserDao {
 
@@ -22,6 +26,11 @@ public class UserDaoImpl implements UserDao {
     @Override
     public UserDto selectUserInfo(String id) {
         return session.selectOne(namespace + "selectUserInfo", id);
+    }
+
+    @Override
+    public List<UserDto> selectAll() {
+        return session.selectList(namespace + "selectAll");
     }
 
 
@@ -56,8 +65,16 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int delete(String user_email) {
-        return session.delete(namespace + "delete", user_email);
+    public int changeEnabled(UserDetailsDto userDetailsDto) {
+        Map<String, Object>map = new HashMap();
+        map.put("enabled",(Integer)userDetailsDto.getEnabled());
+        map.put("id",userDetailsDto.getId());
+        return session.update(namespace + "changeEnabled", map);
+    }
+
+    @Override
+    public int deleteUserAccount(String id) {
+        return session.delete(namespace + "delete", id);
     }
 
     @Override

@@ -22,7 +22,7 @@
 <body style="background-image: url(../resources/images/500.jpg);  background-size: 80%; background-repeat: no-repeat;">
 <div >
     <div class="view">
-        <img src="<c:url value='/images/500.JPG'/>" alt=""/>
+        <img src="<c:url value='/images/500.jpg'/>" alt=""/>
     </div>
     <button id="sendMain" class = 'btn' onclick="window.location.href='${request.contextPath}/'">홈으로</button>
 </div>

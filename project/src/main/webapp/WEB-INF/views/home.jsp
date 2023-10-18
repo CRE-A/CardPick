@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -20,9 +21,20 @@
 <body>
 <div class="wrap__card">
     <section id="nav">
-        <button class="return" type="button" onclick="location.href='<c:url value='/user/main'/>'">
-            <i class="fa-solid fa-gears fa-rotate-270"></i>
-        </button>
+<%--        <button class="return" type="button" onclick="location.href='<c:url value='/user/main'/>'">--%>
+<%--            <i class="fa-solid fa-gears fa-rotate-270"></i>--%>
+<%--        </button>--%>
+        <security:authorize access="hasRole('ROLE_USER')">
+            <button class="return" type="button" onclick="location.href='<c:url value='/user/main'/>'">
+                <i class="fa-solid fa-gears fa-rotate-270"></i>
+            </button>
+        </security:authorize>
+        <security:authorize access="hasRole('ROLE_ADMIN')">
+            <button class="return" type="button" onclick="location.href='<c:url value='/admin/main'/>'">
+                <i class="fa-solid fa-gears fa-rotate-270"></i>
+            </button>
+        </security:authorize>
+
     </section>
     <ul class="cards">
         <li>

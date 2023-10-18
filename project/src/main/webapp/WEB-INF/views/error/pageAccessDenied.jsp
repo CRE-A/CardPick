@@ -32,8 +32,10 @@
   </c:if>
 </div>
 <div class="view">
-  <img src="<c:url value='/images/error.JPG'/>" alt=""/>
+  <img src="<c:url value='/images/accessDeny.jpg'/>" alt=""/>
 </div>
+<button id="sendMain" class = 'btn' onclick="window.location.href='${request.contextPath}/'">홈으로</button>
+
 
 
 

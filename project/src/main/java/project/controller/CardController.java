@@ -78,8 +78,6 @@ public class CardController {
     @GetMapping("/prevPage")
     public String goPrevPage(String no, Model m) {
 
-
-
         String ind = getIndex(no);
 
         m.addAttribute("ind", ind);
