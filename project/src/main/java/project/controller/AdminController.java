@@ -15,6 +15,7 @@ import project.DTO.UserDetailsDto;
 import project.DTO.UserDto;
 import project.service.UserDetailService;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -33,6 +34,26 @@ public class AdminController {
         return "adminPage";
     }
 
+
+    @GetMapping("/search")
+    public String search(Model m, String option, String keyword){
+        HashMap map = new HashMap();
+        map.put("option",option);
+        map.put("keyword",keyword);
+
+        System.out.println("option = " + option);
+        System.out.println("keyword = " + keyword);
+
+        try{
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            m.addAttribute("msg","error");
+            return "redirect:/admin/main";
+        }
+        return "adminPage";
+    };
 
     @PostMapping("/accountManagement")
     public String accountManagement(Model m, UserDetailsDto u) {
@@ -56,6 +77,7 @@ public class AdminController {
     }
 
 
+
     private void stopOrRestoreUser(Model m, UserDetailsDto userDetailsDto) {
 
             int cnt = userDao.changeEnabled(userDetailsDto);
@@ -64,9 +86,6 @@ public class AdminController {
             } else {
                 m.addAttribute("msg", "계정상태 변경에 실패했습니다.");
             }
-
-
-
     }
 
 

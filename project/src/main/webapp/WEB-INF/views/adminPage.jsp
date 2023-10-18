@@ -4,6 +4,13 @@
 <html>
 <head>
     <title>adminPage</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script
+            src="https://kit.fontawesome.com/43ede2213f.js"
+            crossorigin="anonymous"
+    ></script>
 </head>
 <body>
 
@@ -31,12 +38,14 @@
             <h1> 회원 정보 ️</h1>
             <div class="container item">
                 <form id="userInfoForm"
-                      action="<c:url value='/admin/main?option=${option}&keyword=${keyword}'/>">
+                      action="<c:url value='/admin/search?option=${option}&keyword=${keyword}'/>">
                     <select class="user-search-option" name="option">
-                        <option value="all">전체</option>
-                        <option value="email">이메일</option>
+<%--                        <option value="all">전체</option>--%>
+                        <option value="id">아이디</option>
                         <option value="name">이름</option>
-                        <option value="stateCode">상태코드</option>
+                        <option value="dpt">부서</option>
+                        <option value="email">이메일</option>
+                        <option value="phone">전화번호</option>
                     </select>
                     <input type="text" name="keyword" placeholder="검색">
                     <button type="button" class="searchBtn_user">
@@ -60,7 +69,7 @@
                                 <th>이름</th>
                                 <th>부서</th>
                                 <th>이메일</th>
-                                <th>연락처</th>
+                                <th>전화번호</th>
                                 <th>계정상태</th>
                                 <th>계정관리</th>
                                 <th>회원등급변경</th>
@@ -83,7 +92,7 @@
                                         <td class="phone"><input type="hidden" name="phone"
                                                                  value="${userDtoList.phone}">${userDtoList.phone}</td>
                                         <td class="userState"><input type="hidden" name="userState">
-<%--                                                                   value="${userDtoList.enabled}">--%>
+                                                <%--                                                                   value="${userDtoList.enabled}">--%>
                                             <c:if test="${userDtoList.enabled ==  1}">활성</c:if>
                                             <c:if test="${userDtoList.enabled ==  0}">정지</c:if>
                                         </td>
@@ -93,7 +102,7 @@
                                                 <option value="0">계정정지</option>
                                                 <option value="1">계정재활성</option>
                                                 <option value="-1">계정삭제</option>
-<%--                                                <option value="-3">계정정지</option>--%>
+                                                    <%--                                                <option value="-3">계정정지</option>--%>
                                             </select>
                                         </td>
                                         <td>
