@@ -33,7 +33,6 @@
 <%--</section>--%>
 <section>
     <div class="main">
-
         <div class="content index active">
             <h1> 회원 정보 ️</h1>
             <div class="container item">

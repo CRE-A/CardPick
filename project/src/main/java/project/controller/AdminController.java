@@ -62,7 +62,6 @@ public class AdminController {
 
     @PostMapping("/accountManagement")
     public String accountManagement(Model m, UserDetailsDto u) {
-        System.out.println("userDetailsDto = " + u);
 
         // 계정관리
         // 관리자가 회원 계정을 정지/재활성 할 수 있다.
