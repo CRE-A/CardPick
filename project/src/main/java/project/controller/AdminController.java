@@ -41,9 +41,6 @@ public class AdminController {
         map.put("option",option);
         map.put("keyword",keyword);
 
-        System.out.println("option = " + option);
-        System.out.println("keyword = " + keyword);
-
         try{
 
             List<UserDto> SearchResultUserList = userDao.SearchResultUser(map);  // 검색 결과에 일치하는 회원 정보 리스트

@@ -4,6 +4,31 @@
 
 <mapper namespace="project.DAO.UserMapper">
 
+    <select id="SearchResultUser" parameterType="map" resultType="UserDto">
+        SELECT *
+        FROM user
+        WHERE true
+        <choose>
+            <when test='option=="id"'>
+                And   id      LIKE concat('%', #{keyword}, '%')
+            </when>
+            <when test='option=="name"'>
+                And   name      LIKE concat('%', #{keyword}, '%')
+            </when>
+            <when test='option=="dpt"'>
+                And   dpt      LIKE concat('%', #{keyword}, '%')
+            </when>
+            <when test='option=="email"'>
+                And   email      LIKE concat('%', #{keyword}, '%')
+            </when>
+            <otherwise>
+                And   phone      LIKE concat('%', #{keyword}, '%')
+            </otherwise>
+        </choose>
+        ORDER BY enabled Asc
+        LIMIT 15;
+    </select>
+
 
     <select id="select" parameterType="String" resultType="UserDetailsDto">
         SELECT *
@@ -22,7 +47,7 @@
         SELECT *
         FROM user
         WHERE AUTHORITY != 'ROLE_ADMIN'
-        ORDER BY ID
+        ORDER BY ID DESC, enabled ASC
         LIMIT 15;
 
     </select>
