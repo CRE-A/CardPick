@@ -92,7 +92,6 @@
                                         <td class="phone"><input type="hidden" name="phone"
                                                                  value="${userDtoList.phone}">${userDtoList.phone}</td>
                                         <td class="userState"><input type="hidden" name="userState">
-                                                <%--                                                                   value="${userDtoList.enabled}">--%>
                                             <c:if test="${userDtoList.enabled ==  1}">활성</c:if>
                                             <c:if test="${userDtoList.enabled ==  0}">정지</c:if>
                                         </td>
@@ -102,7 +101,6 @@
                                                 <option value="0">계정정지</option>
                                                 <option value="1">계정재활성</option>
                                                 <option value="-1">계정삭제</option>
-                                                    <%--                                                <option value="-3">계정정지</option>--%>
                                             </select>
                                         </td>
                                         <td>

@@ -40,6 +40,12 @@ public class LoginController {
         return "redirect:/login/login";
     }
 
+    @GetMapping("/accessDenied")
+    public String accessDenied(){
+        System.out.println("/login/accessDenied");
+        return "error/pageAccessDenied";
+    }
+
 
     private boolean isAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

@@ -20,8 +20,10 @@ public class AccessDeniedHandler implements org.springframework.security.web.acc
         }
 
         System.out.println("페이지 접근실패 from AccessDeniedHandler");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("error/pageAccessDenied");
-        dispatcher.forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/login/accessDenied");
+//        dispatcher.forward(request, response);
+        response.sendRedirect("/login/accessDenied");
+
     }
 
 }

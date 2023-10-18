@@ -20,21 +20,29 @@
           defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGgEEcmo8EbPKj8kwDcpC8W18nIZvnq2U&callback=initMap"
   ></script>
+  <style type="text/css">
+    .btn {
+      cursor: pointer;
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 400;
+      padding: 12px 20px;
+    }
+  </style>
 
 </head>
 <body>
 
 
-<h1>accessDenied</h1>
-<div id="msg">
-  <c:if test="${LoginFailMessage!=null}">
-    <p> Error : <c:out value="${LoginFailMessage}"/> </p><br/>
-  </c:if>
-</div>
+<%--<div id="msg">--%>
+<%--  <c:if test="${LoginFailMessage!=null}">--%>
+<%--    <p> Error : <c:out value="${LoginFailMessage}"/> </p><br/>--%>
+<%--  </c:if>--%>
+<%--</div>--%>
 <div class="view">
   <img src="<c:url value='/images/accessDeny.jpg'/>" alt=""/>
 </div>
-<button id="sendMain" class = 'btn' onclick="window.location.href='${request.contextPath}/'">홈으로</button>
+<button id="sendMain" class = 'btn' onclick="window.location.href='../../..'">홈으로</button>
 
 
 
