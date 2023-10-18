@@ -36,24 +36,29 @@ public class AdminController {
 
 
     @GetMapping("/search")
-    public String search(Model m, String option, String keyword){
-        HashMap map = new HashMap();
-        map.put("option",option);
-        map.put("keyword",keyword);
+    public String search(Model m, String option, String keyword) {
 
-        try{
+        HashMap map = new HashMap();
+        map.put("option", option);
+        map.put("keyword", keyword);
+
+        try {
 
             List<UserDto> SearchResultUserList = userDao.SearchResultUser(map);  // 검색 결과에 일치하는 회원 정보 리스트
-            m.addAttribute("userDtoList",SearchResultUserList);
+            m.addAttribute("userDtoList", SearchResultUserList);
 
-        }catch (Exception e){
+        } catch (Exception e) {
+
             e.printStackTrace();
-            m.addAttribute("msg","search error");
+            m.addAttribute("msg", "search error");
             return "adminPage";
+
         }
 
         return "adminPage";
-    };
+    }
+
+    ;
 
     @PostMapping("/accountManagement")
     public String accountManagement(Model m, UserDetailsDto u) {
@@ -77,15 +82,14 @@ public class AdminController {
     }
 
 
-
     private void stopOrRestoreUser(Model m, UserDetailsDto userDetailsDto) {
 
-            int cnt = userDao.changeEnabled(userDetailsDto);
-            if (cnt == 1) {
-                m.addAttribute("msg", "계정상태가 변경되었습니다.");
-            } else {
-                m.addAttribute("msg", "계정상태 변경에 실패했습니다.");
-            }
+        int cnt = userDao.changeEnabled(userDetailsDto);
+        if (cnt == 1) {
+            m.addAttribute("msg", "계정상태가 변경되었습니다.");
+        } else {
+            m.addAttribute("msg", "계정상태 변경에 실패했습니다.");
+        }
     }
 
 

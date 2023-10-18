@@ -47,7 +47,7 @@
         SELECT *
         FROM user
         WHERE AUTHORITY != 'ROLE_ADMIN'
-        ORDER BY ID DESC, enabled ASC
+        ORDER BY ID
         LIMIT 15;
 
     </select>
