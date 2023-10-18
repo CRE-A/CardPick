@@ -48,7 +48,7 @@
                         <option value="phone">전화번호</option>
                     </select>
                     <input type="text" name="keyword" placeholder="검색">
-                    <button type="button" class="searchBtn_user">
+                    <button type="submit" class="searchBtn_user">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>

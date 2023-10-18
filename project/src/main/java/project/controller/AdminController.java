@@ -46,12 +46,15 @@ public class AdminController {
 
         try{
 
+            List<UserDto> SearchResultUserList = userDao.SearchResultUser(map);  // 검색 결과에 일치하는 회원 정보 리스트
+            m.addAttribute("userDtoList",SearchResultUserList);
 
         }catch (Exception e){
             e.printStackTrace();
-            m.addAttribute("msg","error");
-            return "redirect:/admin/main";
+            m.addAttribute("msg","search error");
+            return "adminPage";
         }
+
         return "adminPage";
     };
 

@@ -19,6 +19,11 @@ public class UserDaoImpl implements UserDao {
 
 
     @Override
+    public List<UserDto> SearchResultUser(HashMap map) {
+        return session.selectList(namespace + "SearchResultUser", map);
+    }
+
+    @Override
     public UserDetailsDto select(String id) {
         return session.selectOne(namespace + "select", id);
     }

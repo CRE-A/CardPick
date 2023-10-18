@@ -3,9 +3,12 @@ package project.DAO;
 import project.DTO.UserDetailsDto;
 import project.DTO.UserDto;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface UserDao {
+
+    List<UserDto> SearchResultUser(HashMap map);
 
     UserDetailsDto select(String id);
 
