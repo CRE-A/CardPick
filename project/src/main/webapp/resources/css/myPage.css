@@ -8,6 +8,7 @@
 img {
     width: 100%;
     vertical-align: top;
+    cursor : pointer;
 }
 
 body {
@@ -125,6 +126,7 @@ button.modifyBtn {
     border-radius: 5px;
     width: 100px;
     height: 40px;
+    cursor : pointer;
 }
 
 .password span,
@@ -180,10 +182,12 @@ hr {
 
 #nav .return img{
     width: 7%;
+    cursor : pointer;
 }
 
 #footer .return img{
     width: 20%;
+    cursor : pointer;
 }
 
 

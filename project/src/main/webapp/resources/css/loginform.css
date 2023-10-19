@@ -138,6 +138,7 @@ input[name=id]:focus, input[name=pwd]:focus{
     font-weight: bold;
     font-size: 16px;
     border-radius: 5px;
+    cursor : pointer;
 }
 
 .buttons {
@@ -154,13 +155,15 @@ input[name=id]:focus, input[name=pwd]:focus{
     width: 160px;
     height: 35px;
     border-radius: 5px;
-    /*font-weight: bold;*/
-    /*color: lightgrey;*/
+    font-weight: bold;
+    color: lightgrey;
+    cursor : pointer;
 }
 
-.buttons button a{
-    color: lightgrey;
-    font-weight: bold;
-}
+/*.buttons button a{*/
+/*    color: lightgrey;*/
+/*    font-weight: bold;*/
+/*}*/
+
 
 
