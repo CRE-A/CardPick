@@ -2,6 +2,7 @@ package project.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,11 @@ public class HomeController {
         String referer = req.getHeader("Referer");
         response.sendRedirect(referer);
     }
+
+    @PostMapping("/test")
+    public String test(){
+        return "home";}
+
 
 
 }

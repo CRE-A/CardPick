@@ -33,11 +33,8 @@ public class LoginController {
     }
 
 
-    @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        System.out.println("logout complete");
-        return "redirect:/login/login";
+    @PostMapping("/logout")
+    public void logout() {
     }
 
     @GetMapping("/accessDenied")

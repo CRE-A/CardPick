@@ -48,11 +48,9 @@ public class AdminController {
             m.addAttribute("userDtoList", SearchResultUserList);
 
         } catch (Exception e) {
-
             e.printStackTrace();
             m.addAttribute("msg", "search error");
             return "adminPage";
-
         }
 
         return "adminPage";

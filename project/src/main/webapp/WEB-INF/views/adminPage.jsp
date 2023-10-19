@@ -13,24 +13,9 @@
     ></script>
 </head>
 <body>
+<button onclick="location.href='<c:url value='/'/>'">home</button>
+<button onclick="logout()">logout</button>
 
-<%--<section id="nav">--%>
-<%--    <div class="return">--%>
-<%--        <img src="<c:url value='/iconImg/goback.png'/>" onclick="location.href='<c:url value='/'/>'" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/white.png'/>" alt=""/>--%>
-<%--        <img src="<c:url value='/iconImg/logout4.png'/>" onclick="location.href='<c:url value='/login/logout'/>'"--%>
-<%--             alt=""/>--%>
-<%--    </div>--%>
-<%--</section>--%>
 <section>
     <div class="main">
         <div class="content index active">
@@ -124,6 +109,17 @@
         alert('<c:out value="${msg}"/>');
     </script>
 </c:if>
+
+
+<script>
+    function logout(){
+        let f = document.createElement('form');
+        f.setAttribute('method', 'post');
+        f.setAttribute('action', '<c:url value='/login/logout?${_csrf.parameterName}=${_csrf.token}'/>');
+        document.body.appendChild(f);
+        f.submit();
+    }
+</script>
 
 
 </body>

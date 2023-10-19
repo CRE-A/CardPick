@@ -24,13 +24,13 @@ public class MailController {
     @GetMapping("/mailSending")
     public void mailSending(String id, String email) throws Exception {
 
-        int randomNum = (int)(Math.random()*100)+11;
+        int randomNum = (int)(Math.random()*10000)+155;
 
         String setfrom = "pib102mgr@gmail.com"; // 보내는 사람 이메일
         String tomail = email; // 받는 사람 이메일
         String title = "[PIB] 임시 비밀번호 안내 이메일 입니다"; // 제목
-        String TempPassword = "TEMP"+randomNum+"_"+email;
-        String content = "안녕하세요. 고객님의 PIB 임시 비밀번호는"+TempPassword+" 입니다"; // 내용
+        String TempPassword = "TEMP"+randomNum+"PIB";
+        String content = "안녕하세요. 고객님의 PIB 임시 비밀번호는"+TempPassword+" 입니다. 감사합니다."; // 내용
         System.out.println("TempPassword = " + TempPassword);
 
 
