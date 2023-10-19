@@ -18,8 +18,8 @@
         <security:intercept-url pattern="/card/**" access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"/>
         <security:intercept-url pattern="/user/**" access="hasAnyRole('ROLE_USER, ROLE_ADMIN')"/>
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
-        <security:intercept-url pattern="/login/**" access="permitAll"/>
         <security:intercept-url pattern="/register/**" access="permitAll"/>
+        <security:intercept-url pattern="/login/**" access="permitAll"/>
         <security:access-denied-handler ref="accessFailHandler"/>
         <security:form-login login-page="/login/login"
                              login-processing-url="/login/loginProcess"

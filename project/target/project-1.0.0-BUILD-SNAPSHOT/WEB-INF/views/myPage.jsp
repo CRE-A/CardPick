@@ -35,7 +35,8 @@
             <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
             <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
             <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/logout4.png'/>" onclick="location.href='<c:url value='/login/logout'/>'" alt=""/>
+<%--            <img src="<c:url value='/iconImg/logout4.png'/>" onclick="location.href='<c:url value='/login/logout'/>'" alt=""/>--%>
+            <img src="<c:url value='/iconImg/logout4.png'/>" onclick="logout()" alt=""/>
         </div>
     </section>
     <section id="mypage">
@@ -204,6 +205,15 @@
             passCheck = true
             inputCheck()
         }
+
+
+    }
+    function logout(){
+        let f = document.createElement('form');
+        f.setAttribute('method', 'post');
+        f.setAttribute('action', '<c:url value='/login/logout?${_csrf.parameterName}=${_csrf.token}'/>');
+        document.body.appendChild(f);
+        f.submit();
     }
 
 
