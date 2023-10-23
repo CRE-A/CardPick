@@ -106,10 +106,12 @@ body {
     font-size: 22px;
     color : lightgray;
     padding-top: 11px;
+    cursor : pointer;
 }
 
 
 #footer .return img{
     width: 20%;
+    cursor : pointer;
 }
 

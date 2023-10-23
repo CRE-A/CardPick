@@ -121,6 +121,7 @@ button.checkBtn {
   border-radius: 5px;
   width: 100px;
   height: 40px;
+  cursor : pointer;
 }
 
 button.none {
@@ -152,6 +153,7 @@ button.registerBtn {
   border-radius: 5px;
   width: 100px;
   height: 40px;
+  cursor : pointer;
 }
 
 section#footer {

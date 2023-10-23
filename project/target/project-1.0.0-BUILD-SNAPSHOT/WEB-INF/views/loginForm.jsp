@@ -39,13 +39,13 @@
                         <span>
                           <i class="fa-solid fa-user"></i>
                         </span>
-                        <input name="id" type="text" >
+                        <input name="id" type="text">
                     </div>
                     <div class="loginBox1 password">
                         <span>
                           <i class="fa-solid fa-lock"></i>
                         </span>
-                        <input name="pwd" type="password" >
+                        <input name="pwd" type="password">
                     </div>
                 </div>
                 <div id="loginBox2">
@@ -53,11 +53,11 @@
                 </div>
             </div>
             <div class="buttons">
-                <button>
-                    <a href="<c:url value="/register/addUser"/>">신규 가입 </a>
+                <button type="button" onclick="location.href='<c:url value='/register/addUser'/>'">
+                    신규가입
                 </button>
-                <button>
-                    <a href="<c:url value="/register/findPwd"/>">비밀번호 찾기 </a>
+                <button type="button" onclick="location.href='<c:url value='/register/findPwd'/>'">
+                    비밀번호 찾기
                 </button>
             </div>
         </form>

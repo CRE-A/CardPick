@@ -13,6 +13,7 @@ ul {
 img {
     width: 100%;
     vertical-align: top;
+    cursor : pointer;
 }
 
 
@@ -68,6 +69,7 @@ body {
     perspective: 1000px;
     transform-style: preserve-3d;
     position: relative;
+    cursor : pointer;
 }
 
 .cards li .view {

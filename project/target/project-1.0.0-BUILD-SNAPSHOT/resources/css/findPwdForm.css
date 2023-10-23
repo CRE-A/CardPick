@@ -44,6 +44,7 @@ button.none,
 button.sendBtn {
   width: 100px;
   height: 40px;
+  cursor : pointer;
 }
 
 button.none {
@@ -90,6 +91,8 @@ input.inputitem {
 img {
   width: 8%;
   vertical-align: top;
+  cursor : pointer;
+
 }
 
 #nav{
