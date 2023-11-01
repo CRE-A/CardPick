@@ -1,5 +1,6 @@
 package project.DTO;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,7 +18,10 @@ public class UserDetailsDto implements UserDetails {
     private String email;
     private String dpt;
     private String phone;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date regdate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date expirationDate;
     private String authority;
     private Integer enabled;
     private String currentPwd;
@@ -121,6 +125,14 @@ public class UserDetailsDto implements UserDetails {
         this.enabled = enabled;
     }
 
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
     @Override
     public String toString() {
         return "UserDetailsDto{" +
@@ -131,6 +143,7 @@ public class UserDetailsDto implements UserDetails {
                 ", dpt='" + dpt + '\'' +
                 ", phone='" + phone + '\'' +
                 ", regdate=" + regdate +
+                ", expirationDate=" + expirationDate +
                 ", authority='" + authority + '\'' +
                 ", enabled=" + enabled +
                 ", currentPwd='" + currentPwd + '\'' +

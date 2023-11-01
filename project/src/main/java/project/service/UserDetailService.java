@@ -22,7 +22,12 @@ public class UserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 
-        UserDetailsDto userDetailsDto = userDao.selectUserINFO(id);
+        UserDetailsDto userDetailsDto = null;
+        try {
+            userDetailsDto = userDao.selectUserINFO(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         if (userDetailsDto == null) {
             throw new UsernameNotFoundException("id" + id + " not found");
         }
@@ -31,7 +36,7 @@ public class UserDetailService implements UserDetailsService {
 
 
     // Registration // 회원이 입력한 pwd 를 암호화해서 db에 저장
-    public int registerAccount(UserDetailsDto userDetailsDto) {
+    public int registerAccount(UserDetailsDto userDetailsDto) throws Exception {
         String encodedPassword = bCryptPasswordEncoder.encode(userDetailsDto.getPassword());
         userDetailsDto.setPwd(encodedPassword);
         return userDao.insert(userDetailsDto);

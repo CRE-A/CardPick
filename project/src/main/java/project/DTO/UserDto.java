@@ -1,5 +1,7 @@
 package project.DTO;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -10,7 +12,10 @@ public class UserDto {
     private String email;
     private String dpt;
     private String phone;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date regdate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date expirationDate;
     private String authority;
     private Integer enabled;
 
@@ -105,6 +110,13 @@ public class UserDto {
         return Objects.hash(id, name, email);
     }
 
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
 
     @Override
     public String toString() {
@@ -115,7 +127,8 @@ public class UserDto {
                 ", email='" + email + '\'' +
                 ", dpt='" + dpt + '\'' +
                 ", phone='" + phone + '\'' +
-                ", regdate=" + regdate +
+                ", regdate='" + regdate + '\'' +
+                ", expirationDate=" + expirationDate +
                 ", authority='" + authority + '\'' +
                 ", enabled=" + enabled +
                 '}';

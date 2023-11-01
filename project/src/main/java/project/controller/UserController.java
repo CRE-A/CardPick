@@ -25,7 +25,7 @@ public class UserController {
 
 
     @GetMapping("/main")
-    public String myPage(Model m, Authentication auth, String msg) {
+    public String myPage(Model m, Authentication auth, String msg) throws Exception {
 
         UserDto userDto = userDao.selectUserInfo(getId(auth));
         m.addAttribute("userDto", userDto);
@@ -36,7 +36,7 @@ public class UserController {
 
 
     @PostMapping("/changePwd")
-    public String changePwd(Model m, UserDetailsDto userDetailsDto) {
+    public String changePwd(Model m, UserDetailsDto userDetailsDto) throws Exception {
 
         //유효성 검사
         if (!(isAthenticated(userDetailsDto))) {
@@ -60,7 +60,7 @@ public class UserController {
 
 
     @PostMapping("/updatePWD")
-    public void updateTmpPassword(String id, String TmpPassword) {
+    public void updateTmpPassword(String id, String TmpPassword) throws Exception {
 
         String encodedPassword = bCryptPasswordEncoder.encode(TmpPassword);
         UserDetailsDto userDetailsDto = new UserDetailsDto();
@@ -72,7 +72,7 @@ public class UserController {
 
 
     @PostMapping("/changeDptPhone")
-    public String modifyProfile(Model m, UserDetailsDto userDetailsDto, Authentication auth) {
+    public String modifyProfile(Model m, UserDetailsDto userDetailsDto, Authentication auth) throws Exception {
 
         userDetailsDto.setId(getId(auth));
         int cnt = userDao.changeDptPhone(userDetailsDto);
@@ -91,7 +91,7 @@ public class UserController {
         return userDetails.getUsername();
     }
 
-    private boolean isAthenticated(UserDetailsDto userDetailsDto) {
+    private boolean isAthenticated(UserDetailsDto userDetailsDto) throws Exception {
 
         String checkPwd = userDao.checkPwd(userDetailsDto.getUsername());
         String pwd = userDetailsDto.getCurrentPwd();

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>adminPage</title>
@@ -24,7 +25,6 @@
                 <form id="userInfoForm"
                       action="<c:url value='/admin/search?option=${option}&keyword=${keyword}'/>">
                     <select class="user-search-option" name="option">
-<%--                        <option value="all">전체</option>--%>
                         <option value="id">아이디</option>
                         <option value="name">이름</option>
                         <option value="dpt">부서</option>
@@ -54,9 +54,10 @@
                                 <th>부서</th>
                                 <th>이메일</th>
                                 <th>전화번호</th>
+                                <th>가입일</th>
                                 <th>계정상태</th>
-                                <th>계정관리</th>
-                                <th>회원등급변경</th>
+                                <th>계정활성기간</th>
+                                    <%--                                <th>회원등급변경</th>--%>
                             </tr>
                             </thead>
                             <tbody>
@@ -75,17 +76,21 @@
                                                                  value="${userDtoList.email}">${userDtoList.email}</td>
                                         <td class="phone"><input type="hidden" name="phone"
                                                                  value="${userDtoList.phone}">${userDtoList.phone}</td>
-                                        <td class="userState"><input type="hidden" name="userState">
-                                            <c:if test="${userDtoList.enabled ==  1}">활성</c:if>
-                                            <c:if test="${userDtoList.enabled ==  0}">정지</c:if>
+<%--                                        <td class="regdate"><input type="hidden" type="date" name="regdate"--%>
+<%--                                                                 value="<fmt:formatDate pattern="yyyy-MM-dd" value="${userDtoList.regdate}"/>">--%>
+<%--                                            <fmt:formatDate pattern="yyyy-MM-dd" value="${userDtoList.regdate}"/></td>--%>
+                                        <td class="regdate">
+                                            <input type="date" name="regdate"readonly
+                                                   value="<fmt:formatDate pattern="yyyy-MM-dd" value="${userDtoList.regdate}"/>">
                                         </td>
-                                        <td>
-                                            <select name="enabled">
-                                                <option value="1">일반회원</option>
-                                                <option value="0">계정정지</option>
-                                                <option value="1">계정재활성</option>
-                                                <option value="-1">계정삭제</option>
-                                            </select>
+                                        <td class="userState">
+                                            <c:if test="${userDtoList.enabled ==  1}"><span style="color: green">활성</span></c:if>
+                                            <c:if test="${userDtoList.enabled ==  0}"><span style="color: orangered">정지</span></c:if>
+                                            <c:if test="${userDtoList.enabled == -1}"><span style="color: blue">승인대기</span></c:if>
+                                        </td>
+                                        <td class="expirationDate">
+                                            <input type="date" name="expirationDate" max="2040-12-31" min="2023-09-01"
+                                                   value="<fmt:formatDate pattern="yyyy-MM-dd" value="${userDtoList.expirationDate}"/>">
                                         </td>
                                         <td>
                                             <input class="userBtn" type="submit" value="저장">
@@ -101,6 +106,18 @@
             </div>                       <!--회원 검색 리스트-->
         </div>      <!--일반회원-->
     </div>
+
+    <div id="pageBar">
+        <c:if test="${ph.showPrev}">
+            <a href="<c:url value="/admin/search${ph.sc.getQueryString(ph.beginPage-1)}"/>">&lt;</a>
+        </c:if>
+        <c:forEach var="i" begin="${ph.beginPage}" end="${ph.endPage}">
+            <a href="<c:url value='/admin/search${ph.sc.getQueryString(i)}'/>">${i}</a>
+        </c:forEach>
+        <c:if test="${ph.showNext}">
+            <a href="<c:url value="/admin/search${ph.sc.getQueryString(ph.endPage+1)}"/>">&gt;</a>
+        </c:if>
+    </div>
 </section>
 
 
@@ -112,7 +129,7 @@
 
 
 <script>
-    function logout(){
+    function logout() {
         let f = document.createElement('form');
         f.setAttribute('method', 'post');
         f.setAttribute('action', '<c:url value='/login/logout?${_csrf.parameterName}=${_csrf.token}'/>');

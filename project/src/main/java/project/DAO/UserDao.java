@@ -1,5 +1,6 @@
 package project.DAO;
 
+import project.DTO.SearchCondition;
 import project.DTO.UserDetailsDto;
 import project.DTO.UserDto;
 
@@ -8,34 +9,38 @@ import java.util.List;
 
 public interface UserDao {
 
-    List<UserDto> SearchResultUser(HashMap map);
+    List<UserDto> SearchResultUser(SearchCondition sc) throws Exception;
 
-    UserDetailsDto select(String id);
+    UserDetailsDto select(String id) throws Exception;
 
-    UserDto selectUserInfo(String id);
+    UserDto selectUserInfo(String id) throws Exception;
 
-    List<UserDto> selectAll();
+    List<UserDto> selectAll() throws Exception;
 
-    int insert(UserDetailsDto userDetailsDto);
+    int insert(UserDetailsDto userDetailsDto) throws Exception;
 
-    int update(UserDetailsDto userDetailsDto);
+    int update(UserDetailsDto userDetailsDto) throws Exception;
 
-    int changeDptPhone(UserDetailsDto userDetailsDto);
+    int changeDptPhone(UserDetailsDto userDetailsDto) throws Exception;
 
-    int changeEnabled(UserDetailsDto userDetailsDto);
+    int changeEnabled(UserDetailsDto userDetailsDto) throws Exception;
 
 
-    int deleteUserAccount(String id);
+    int deleteUserAccount(String id) throws Exception;
 
-    int deleteAll();
+    int deleteAll() throws Exception;
 
-    int count(String id);
+    int count(String id) throws Exception;
 
-    UserDetailsDto selectUserINFO(String id);
+    UserDetailsDto selectUserINFO(String id) throws Exception;
 
-    int changePwd(UserDetailsDto userDetailsDto);
+    int updateExpDateAndEnabled(UserDto userDto) throws Exception;
 
-    String checkPwd(String id);
+    int changePwd(UserDetailsDto userDetailsDto) throws Exception;
 
-    int validation(UserDetailsDto userDetailsDto);
+    String checkPwd(String id) throws Exception;
+
+    int validation(UserDetailsDto userDetailsDto) throws Exception;
+
+    int SearchResultCnt(SearchCondition sc) throws Exception;
 }

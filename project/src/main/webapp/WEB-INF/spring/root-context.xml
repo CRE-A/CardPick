@@ -10,10 +10,12 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!--		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->
+<!--		<property name="url" value="jdbc:mysql://10.10.10.80:3306/pib102?useUnicode=true&amp;characterEncoding=utf8"></property>-->
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://10.10.10.80:3306/pib102?useUnicode=true&amp;characterEncoding=utf8"></property>
-		<property name="username" value="pib102"></property>
-		<property name="password" value="P@ssw0rd"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/project?useUnicode=true&amp;characterEncoding=utf8"></property>
+		<property name="username" value="jaeho"></property>
+		<property name="password" value="12345678Ab"></property>
 	</bean>
 
 
@@ -39,8 +41,8 @@
 		  class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
-		<property name="username" value="아이디@gmail.com" />
-		<property name="password" value="앱비밀번호 16digit" />
+<!--		<property name="username" value="아이디@gmail.com" />-->
+<!--		<property name="password" value="앱비밀번호 16digit" />-->
 		<property name="defaultEncoding" value="utf-8" />
 		<property name="javaMailProperties">
 			<props>

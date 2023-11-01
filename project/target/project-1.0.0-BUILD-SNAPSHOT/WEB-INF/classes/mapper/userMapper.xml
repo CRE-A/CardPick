@@ -4,29 +4,45 @@
 
 <mapper namespace="project.DAO.UserMapper">
 
-    <select id="SearchResultUser" parameterType="map" resultType="UserDto">
+    <!--검색 쿼리 완성본-->
+    <sql id="searchCondition">
+        <choose>
+            <when test='option=="id"'>
+                And id LIKE concat('%', #{keyword}, '%')
+            </when>
+            <when test='option=="name"'>
+                And name LIKE concat('%', #{keyword}, '%')
+            </when>
+            <when test='option=="dpt"'>
+                And dpt LIKE concat('%', #{keyword}, '%')
+            </when>
+            <when test='option=="email"'>
+                And email LIKE concat('%', #{keyword}, '%')
+            </when>
+            <when test='option=="phone"'>
+                And phone LIKE concat('%', #{keyword}, '%')
+            </when>
+            <otherwise>
+                And AUTHORITY != 'ROLE_ADMIN'
+            </otherwise>
+        </choose>
+    </sql>
+
+    <select id="SearchResultUser" parameterType="SearchCondition" resultType="UserDto">
         SELECT *
         FROM user
         WHERE true
-        <choose>
-            <when test='option=="id"'>
-                And   id      LIKE concat('%', #{keyword}, '%')
-            </when>
-            <when test='option=="name"'>
-                And   name      LIKE concat('%', #{keyword}, '%')
-            </when>
-            <when test='option=="dpt"'>
-                And   dpt      LIKE concat('%', #{keyword}, '%')
-            </when>
-            <when test='option=="email"'>
-                And   email      LIKE concat('%', #{keyword}, '%')
-            </when>
-            <otherwise>
-                And   phone      LIKE concat('%', #{keyword}, '%')
-            </otherwise>
-        </choose>
-        ORDER BY enabled Asc
-        LIMIT 15;
+        <include refid="searchCondition"/>
+        ORDER BY regdate DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+
+    <select id="searchResultCnt" parameterType="SearchCondition" resultType="int">
+        SELECT count(*)
+        FROM  user
+        WHERE true
+        <include refid="searchCondition"/>
     </select>
 
 
@@ -44,12 +60,19 @@
 
 
     <select id="selectAll" resultType="UserDto">
-        SELECT *
+        SELECT id,
+               pwd,
+               name,
+               email,
+               dpt,
+               phone,
+               regdate,
+               expirationDate,
+               authority,
+               enabled
         FROM user
         WHERE AUTHORITY != 'ROLE_ADMIN'
-        ORDER BY ID
-        LIMIT 15;
-
+        ORDER BY regdate DESC;
     </select>
 
 
@@ -89,6 +112,14 @@
         UPDATE user
         SET enabled = #{enabled}
         WHERE id = #{id};
+    </update>
+
+    <update id="updateExpDateAndEnabled" parameterType="UserDto">
+        UPDATE user
+        SET expirationDate = #{expirationDate},
+            enabled = #{enabled}
+        WHERE id = #{id}
+        AND name = #{name};
     </update>
 
     <delete id="delete" parameterType="String">

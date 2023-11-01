@@ -7,5 +7,6 @@
         <typeAlias alias="UserDetailsDto" type="project.DTO.UserDetailsDto"/>
         <typeAlias alias="UserDto" type="project.DTO.UserDto"/>
         <typeAlias alias="SelectedCardsDto" type="project.DTO.SelectedCardsDto"/>
+        <typeAlias alias="SearchCondition" type="project.DTO.SearchCondition"/>
     </typeAliases>
 </configuration>

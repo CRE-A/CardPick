@@ -38,7 +38,7 @@ public class RegisterController {
 
 
     @PostMapping("/addUser")
-    public String register(UserDetailsDto userDetailsDto, Model m) {
+    public String register(UserDetailsDto userDetailsDto, Model m) throws Exception {
 
         int cnt = userDetailService.registerAccount(userDetailsDto);
         if (cnt != 1) {
@@ -53,7 +53,7 @@ public class RegisterController {
 
 
     @PostMapping("/checkID")
-    public String checkID(UserDto userDto, Model m) {
+    public String checkID(UserDto userDto, Model m) throws Exception {
 
         int cnt = userDao.count(userDto.getId());
         if (cnt == 0) {
@@ -75,7 +75,7 @@ public class RegisterController {
 
 
     @PostMapping("/findPwd")
-    public String findPwd(UserDetailsDto userDetailsDto, Model m, HttpServletRequest req) {
+    public String findPwd(UserDetailsDto userDetailsDto, Model m, HttpServletRequest req) throws Exception {
 
         int cnt = userDao.validation(userDetailsDto);
         if (cnt != 1) {
@@ -93,7 +93,7 @@ public class RegisterController {
     }
 
 
-    private boolean duplicateCheck(UserDetailsDto userDetailsDto) {
+    private boolean duplicateCheck(UserDetailsDto userDetailsDto) throws Exception {
 
         UserDetailsDto userDto = userDao.select(userDetailsDto.getUsername());
         System.out.println("DuplicateCheck // user = " + userDto);
