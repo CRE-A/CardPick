@@ -133,6 +133,10 @@ public class UserDetailsDto implements UserDetails {
         this.expirationDate = expirationDate;
     }
 
+    public Date getRegdate() {
+        return regdate;
+    }
+
     @Override
     public String toString() {
         return "UserDetailsDto{" +

@@ -82,11 +82,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int changeEnabled(UserDetailsDto userDetailsDto) throws Exception{
-        Map<String, Object> map = new HashMap();
-//        map.put("enabled", (Integer) userDetailsDto.getEnabled());
-        map.put("enabled", 1);
-        map.put("id", userDetailsDto.getId());
+    public int changeEnabled(Map map) throws Exception{
         return session.update(namespace + "changeEnabled", map);
     }
 

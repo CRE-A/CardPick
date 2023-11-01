@@ -12,12 +12,35 @@
             src="https://kit.fontawesome.com/43ede2213f.js"
             crossorigin="anonymous"
     ></script>
+    <style>
+        a {
+            text-decoration: none;
+            margin : 0px 5px 0 5px;
+        }
+        body {
+            background: #f5f3fa;
+        }
+        #section{
+            width:900px;
+            height: 600px;
+            transform: translate(20%, 10%);
+            background-color: white;
+            padding: 20px 20px 20px 20px;
+        }
+        #pageBar{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            left:50%;
+        }
+    </style>
 </head>
 <body>
-<button onclick="location.href='<c:url value='/'/>'">home</button>
-<button onclick="logout()">logout</button>
 
-<section>
+<section id="section">
+    <button onclick="location.href='<c:url value='/'/>'">home</button>
+    <button onclick="logout()">logout</button>
     <div class="main">
         <div class="content index active">
             <h1> 회원 정보 ️</h1>
@@ -43,7 +66,7 @@
                     <h3>검색 결과가 없습니다.</h3>
                 </div>
             </c:if>
-            <div class="container item">
+            <div class="container item" id="container item">
                 <div class="userList">
                     <c:if test="${not empty userDtoList}">
                         <table>
@@ -55,9 +78,9 @@
                                 <th>이메일</th>
                                 <th>전화번호</th>
                                 <th>가입일</th>
+                                <th>계정만료일</th>
+                                <th></th>
                                 <th>계정상태</th>
-                                <th>계정활성기간</th>
-                                    <%--                                <th>회원등급변경</th>--%>
                             </tr>
                             </thead>
                             <tbody>
@@ -76,17 +99,9 @@
                                                                  value="${userDtoList.email}">${userDtoList.email}</td>
                                         <td class="phone"><input type="hidden" name="phone"
                                                                  value="${userDtoList.phone}">${userDtoList.phone}</td>
-<%--                                        <td class="regdate"><input type="hidden" type="date" name="regdate"--%>
-<%--                                                                 value="<fmt:formatDate pattern="yyyy-MM-dd" value="${userDtoList.regdate}"/>">--%>
-<%--                                            <fmt:formatDate pattern="yyyy-MM-dd" value="${userDtoList.regdate}"/></td>--%>
                                         <td class="regdate">
                                             <input type="date" name="regdate"readonly
                                                    value="<fmt:formatDate pattern="yyyy-MM-dd" value="${userDtoList.regdate}"/>">
-                                        </td>
-                                        <td class="userState">
-                                            <c:if test="${userDtoList.enabled ==  1}"><span style="color: green">활성</span></c:if>
-                                            <c:if test="${userDtoList.enabled ==  0}"><span style="color: orangered">정지</span></c:if>
-                                            <c:if test="${userDtoList.enabled == -1}"><span style="color: blue">승인대기</span></c:if>
                                         </td>
                                         <td class="expirationDate">
                                             <input type="date" name="expirationDate" max="2040-12-31" min="2023-09-01"
@@ -94,6 +109,11 @@
                                         </td>
                                         <td>
                                             <input class="userBtn" type="submit" value="저장">
+                                        </td>
+                                        <td class="userState">
+                                            <c:if test="${userDtoList.enabled ==  1}"><span style="color: green">활성</span></c:if>
+                                            <c:if test="${userDtoList.enabled ==  0}"><span style="color: orangered">정지</span></c:if>
+                                            <c:if test="${userDtoList.enabled == -1}"><span style="color: blue">승인대기</span></c:if>
                                         </td>
                                     </tr>
                                 </form>

@@ -91,31 +91,6 @@ public class AdminController {
 
 
 
-
-
-
-
-//    @GetMapping("/search")
-//    public String search(Model m, String option, String keyword) {
-//
-//        HashMap map = new HashMap();
-//        map.put("option", option);
-//        map.put("keyword", keyword);
-//
-//        try {
-//
-//            List<UserDto> SearchResultUserList = userDao.SearchResultUser(map);  // 검색 결과에 일치하는 회원 정보 리스트
-//            m.addAttribute("userDtoList", SearchResultUserList);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            m.addAttribute("msg", "search error");
-//            return "adminPage";
-//        }
-//
-//        return "adminPage";
-//    };
-
     @PostMapping("/accountManagement")
     public String accountManagement(Model m,  UserDto userDto) throws Exception {
 
@@ -124,11 +99,6 @@ public class AdminController {
         userDto.setEnabled(enabledNum);
         userDao.updateExpDateAndEnabled(userDto);
 
-
-//        List<UserDto> userDtoList = userDao.selectAll();  // 웹사이트 회원 정보 리스트
-//        m.addAttribute("userDtoList", userDtoList);
-//
-//          return "adminPage";
             return "redirect:/admin/main";
     }
 

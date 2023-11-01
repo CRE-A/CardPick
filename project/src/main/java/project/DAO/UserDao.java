@@ -6,6 +6,7 @@ import project.DTO.UserDto;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface UserDao {
 
@@ -23,7 +24,7 @@ public interface UserDao {
 
     int changeDptPhone(UserDetailsDto userDetailsDto) throws Exception;
 
-    int changeEnabled(UserDetailsDto userDetailsDto) throws Exception;
+    int changeEnabled(Map map) throws Exception;
 
 
     int deleteUserAccount(String id) throws Exception;
