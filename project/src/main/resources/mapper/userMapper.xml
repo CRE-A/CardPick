@@ -77,8 +77,8 @@
 
 
     <insert id="insert" parameterType="UserDetailsDto">
-        INSERT INTO user (id, pwd, name, email, dpt, phone, regdate)
-        VALUES (#{id}, #{pwd}, #{name}, #{email}, #{dpt}, #{phone}, now());
+        INSERT INTO user (id, pwd, name, email, dpt, phone)
+        VALUES (#{id}, #{pwd}, #{name}, #{email}, #{dpt}, #{phone});
     </insert>
 
     <update id="update" parameterType="UserDetailsDto">

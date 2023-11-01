@@ -20,6 +20,7 @@ import project.service.UserDetailService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -105,15 +106,16 @@ public class AdminController {
     private Integer getEnabledNum(UserDto u) {
 
         // 가입일(regdate)과 계정활성일(expirationDate)를 비교해 enabled number을 부여한다.
-        // 계정활성일 이 가입일 보다 후에 있을 경우, enabled = 1  --> 계정 활성
-        // 계정활성일 이 가입일 보다 전에 있을 경우, enabled = 0  --> 계정 정지
+        // 계정활성일 이 오늘 보다 후에 있을 경우, enabled = 1  --> 계정 활성
+        // 계정활성일 이 오늘 보다 전에 있을 경우, enabled = 0  --> 계정 정지
         // (가입직후)                           enabled = -1 --> 승인 대기
 
-        Date regdate = u.getRegdate();
+
+        Date now = new Date();
         Date expirationDate = u.getExpirationDate();
 
-        if(regdate.before(expirationDate)) return 1;
-        if(regdate.after(expirationDate)) return 0;
+        if(now.before(expirationDate)) return 1;
+        if(now.after(expirationDate)) return 0;
 
         return -1;
     }

@@ -21,7 +21,7 @@ public class LoginFailHandler implements AuthenticationFailureHandler {
             request.setAttribute("msg", "죄송합니다. 시스템에 오류가 발생했습니다.");
         }
         else if(exception instanceof DisabledException) {
-            request.setAttribute("msg", "현재 사용할 수 없는 계정입니다.");
+            request.setAttribute("msg", "현재 사용할 수 없는 계정입니다. 관리자의 승인을 기다리세요.");
         }
         else if(exception instanceof LockedException) {
             request.setAttribute("msg", "현재 잠긴 계정입니다.");

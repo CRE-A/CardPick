@@ -4,12 +4,12 @@
 <%@ taglib
         prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page
-        session="false" %>  
+        session="false" %>
 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
-    pageContext.setAttribute("br","<br/>");
-    pageContext.setAttribute("cn","\n");
+    pageContext.setAttribute("br", "<br/>");
+    pageContext.setAttribute("cn", "\n");
 %>
 
 <!DOCTYPE html>
@@ -20,9 +20,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Registration</title>
     <!-- CSS -->
-    <%--
-    <link rel="stylesheet" href="<c:url value='/css/navbarSearchX.css'/>" />
-    --%>
     <link rel="stylesheet" href="<c:url value='/css/registerForm.css'/>"/>
 
     <%-- script --%>
@@ -59,7 +56,6 @@
                     <div class="inputBox items name">
                         <span>이름:</span>
                     </div>
-<%--                    <span class="requestField">이름을 입력해주세요.</span>--%>
                     <input required placeholder="이름" type="text" name="name" data-name="이름" valud="${userDto.name}"/>
                 </div>
                 <button class="none"></button>
@@ -72,14 +68,12 @@
                     <div class="inputBox items name">
                         <span>아이디:</span>
                     </div>
-<%--                    <span class="requestField">아이디를 입력해주세요.</span>--%>
                     <input required placeholder="아이디" type="text" name="id" data-name="아이디" value="${userDto.id}"/>
                 </div>
                 <button
                         class="checkBtn"
                         id="chkIdBtn"
                         type="button"
-                <%--              onclick="idChk()"--%>
                 >
                     체크아이디
                 </button>
@@ -93,7 +87,6 @@
                     <div class="inputBox items name">
                         <span>패스워드:</span>
                     </div>
-<%--                    <span class="requestField">패스워드를 입력해주세요.</span>--%>
                     <input
                             required
                             placeholder="패스워드"
@@ -113,8 +106,8 @@
                     <div class="inputBox items name">
                         <span>이메일:</span>
                     </div>
-<%--                    <span class="requestField">이메일을 입력해주세요.</span>--%>
-                    <input required placeholder="이메일" type="text" name="email" data-name="이메일" value="${userDto.email}"/>
+                    <input required placeholder="이메일" type="text" name="email" data-name="이메일"
+                           value="${userDto.email}"/>
                 </div>
                 <button class="none"></button>
             </li>
@@ -126,7 +119,6 @@
                     <div class="inputBox items name">
                         <span>소 속:</span>
                     </div>
-<%--                    <span class="requestField">소속을 입력해주세요.</span>--%>
                     <input required placeholder="소속" type="text" name="dpt" data-name="소속" value="${userDto.dpt}"/>
                 </div>
                 <button class="none"></button>
@@ -139,8 +131,8 @@
                     <div class="inputBox items name">
                         <span>전화번호:</span>
                     </div>
-<%--                    <span class="requestField">전화번호를 입력해주세요.</span>--%>
-                    <input required placeholder="전화번호" type="text" name="phone" data-name="전화번호" value="${userDto.phone}"/>
+                    <input required placeholder="전화번호" type="text" name="phone" data-name="전화번호"
+                           value="${userDto.phone}"/>
                 </div>
                 <button class="none"></button>
             </li>
@@ -167,23 +159,24 @@
             2.각각의 개인정보 처리 및 보유기간은 다음과 같습니다.<br/>
             1) 홈페이지 회원 가입 및 관리 : 홈페이지 탈퇴시까지<br/>
             다만, 다음의 사유에 해당하는 경우에는 해당 사유 종료시까지<br/>
-             (1)관계 법령 위반에 따른 수사,조사 등이 진행중인 경우에는 해당 수사,조사,종료시 까지<br/>
-             (2)홈페이지 이용에 따른 채권,채무관계 잔존시에는 해당 채권,채무관계 정산시까지<br/>
+            (1)관계 법령 위반에 따른 수사,조사 등이 진행중인 경우에는 해당 수사,조사,종료시 까지<br/>
+            (2)홈페이지 이용에 따른 채권,채무관계 잔존시에는 해당 채권,채무관계 정산시까지<br/>
             <br/>
             2. 재화 또는 서비스 제공 : 재화,서비스 공급완료 및 요금결제, 정산 완료시까지<br/>
             다만 다음의 사유에 해당하는 경우에는 해당 기간 종료시까지<br/>
-             1)[전자상거래 등에서의 소비자 보호에 관한 법률] 에 따른 표시,광고,계약내용 및 이행 등 거래에 관한 기록<br/>
-             -표시,광고에 관한 기록:6월<br/>
-             -계약 또는 청약철회, 대금결제, 재화 등 공급기록:5년<br/>
-             -소비자 불만 또는 분쟁처리에 관한 기록:3년<br/>
-             2) [통신비밀보호법] 제 41조에 따른 통신사실확인자료 보관<br/>
-             -컴퓨터통신, 인터넷 로그기록자료, 접속지 추적자료:3개월<br/>
+            1)[전자상거래 등에서의 소비자 보호에 관한 법률] 에 따른 표시,광고,계약내용 및 이행 등 거래에 관한 기록<br/>
+            -표시,광고에 관한 기록:6월<br/>
+            -계약 또는 청약철회, 대금결제, 재화 등 공급기록:5년<br/>
+            -소비자 불만 또는 분쟁처리에 관한 기록:3년<br/>
+            2) [통신비밀보호법] 제 41조에 따른 통신사실확인자료 보관<br/>
+            -컴퓨터통신, 인터넷 로그기록자료, 접속지 추적자료:3개월<br/>
             <br/>
             제 2조 (개인정보의 제3자 제공)<br/>
             PIB는 원칙적으로 정보주체의 개인정보를 본래의 목적 범위를 초과하여 처리하거나 제 3자에게 제공하지 않습니다. 단, 다음의 경우에는 개인정보를 제 3자에게 제공할 수 있습니다.<br/>
             1.정보 주체로부터 별도의 동의를 받은 경우<br/>
             2.법률에 특별한 규정이 있는 경우<br/>
-            3.정보주체 또는 법정대리인이 의사표시를 할 수 없는 상태에 있거나 주소불명 등으로 사전동의를 받을 수 없는 경우로서 명백히 정보주체 또는 제 3자의 급박한 생명, 신체, 재산의 이익을 위햐여 필요하다고 인정되는 경우<br/>
+            3.정보주체 또는 법정대리인이 의사표시를 할 수 없는 상태에 있거나 주소불명 등으로 사전동의를 받을 수 없는 경우로서 명백히 정보주체 또는 제 3자의 급박한 생명, 신체, 재산의 이익을 위햐여
+            필요하다고 인정되는 경우<br/>
             4.통계작성 및 학술연구 등의 목적을 위하여 필요한 경우로서 특정한 개인을 알아볼 수 없는 형태로 개인정보를 제공하는 경우<br/>
             5.개인정보를 목적 외의 용도로 이용하거나 이를 제 3자에게 제공하지 아니하면 다른 법률에서 정하는 소관 업무를 수행할 수 없는 경우<br/>
             6.조약, 그 밖의 국제협정의 이행을 위하여 외국정보 또는 국제기구에 제공하기 위하여 필요한 경우<br/>
@@ -192,7 +185,8 @@
             9.형 및 감호, 보호처분의 집행을 위하여 필요한 경우<br/>
             <br/>
             제 3조 (개인정보처리 위탁)<br/>
-            PIB는 위탁계약 시 개인정보 관련 법규를 준수, 개인정보에 관한 제3자 제공 금지 및 책임부담 등을 명확히 규정하고, 당해 계약내용을 보관하고 있습니다. 또한 업체 변경 시는 개인정보 처리방침을 통해 고지하고 있습니다.<br/>
+            PIB는 위탁계약 시 개인정보 관련 법규를 준수, 개인정보에 관한 제3자 제공 금지 및 책임부담 등을 명확히 규정하고, 당해 계약내용을 보관하고 있습니다. 또한 업체 변경 시는 개인정보
+            처리방침을 통해 고지하고 있습니다.<br/>
             <br/>
             제 4조 (정보주체의 권리,의무 및 행사방법)<br/>
             정보주차는 자신의 개인정보에 대해 다음과 같은 권리를 행사할 수 있습니다.<br/>
@@ -222,9 +216,11 @@
             2.개인정보의 암호화<br/>
             이용자의 개인정보 중 고유식별번호, 비밀번호는 암호화된 상태로 저장 및 관리되고 있습니다.<br/>
             3.해킹 등에 대비한 기술적 대책<br/>
-            해킹이나 컴퓨터 바이러스 등에 의한 개인정보 유출 및 훼손을 막기 위하여 보안프로그램을 설치하고 추가적인 갱신 점검을 하여, 외부로부터 접근이 통제된 구역에 시스템을 설치하고 기술적 물리적으로 감시 및 차단하고 있습니다.<br/>
+            해킹이나 컴퓨터 바이러스 등에 의한 개인정보 유출 및 훼손을 막기 위하여 보안프로그램을 설치하고 추가적인 갱신 점검을 하여, 외부로부터 접근이 통제된 구역에 시스템을 설치하고 기술적 물리적으로
+            감시 및 차단하고 있습니다.<br/>
             4.개인정보처리시스템 접근제한<br/>
-            개인정보를 처리하는 데이터베이스시스템에 대한 접근권한의 부여, 변경, 말소를 통하여 개인정보에 대한 접근통제를 하고 있으며 침입차단시스템을 이용하여 외부로부터의 무단접근을 통제하고 있습니다.<br/>
+            개인정보를 처리하는 데이터베이스시스템에 대한 접근권한의 부여, 변경, 말소를 통하여 개인정보에 대한 접근통제를 하고 있으며 침입차단시스템을 이용하여 외부로부터의 무단접근을 통제하고
+            있습니다.<br/>
             5.접속기록의 보관 및 위변조 방지<br/>
             개인정보처리시스템에 접속한 기록을 최소 6개월 이상 보관,관리하고 있으며, 접속 기록이 위변조 및 도난, 분실되지 않도록 관리하고 있습니다.<br/>
             6.비인가자에 대한 출입 통제<br/>
@@ -241,7 +237,8 @@
             다. 대검찰청 사이버범죄수사단 : 02-3480-3571(cybercid@spo.go.kr)<br/>
             라. 경찰청 사이버테러대응센터 : 1566-0112<br/>
             ([http://www.netan.go.kr%29]www.netan.go.kr)<br/>
-            2)개인정보의 열람,정정,삭제,처리정지 등에 대한 정보주체의 요구에 대하여 공공기관의 장이 행한 처분 또는 부작위로 인하여 권리 또는 이익을 침해 받은 자는 행정심판법이 정하는 바에 따라 행정심판틀 청구할 수 있습니다.<br/>
+            2)개인정보의 열람,정정,삭제,처리정지 등에 대한 정보주체의 요구에 대하여 공공기관의 장이 행한 처분 또는 부작위로 인하여 권리 또는 이익을 침해 받은 자는 행정심판법이 정하는 바에 따라
+            행정심판틀 청구할 수 있습니다.<br/>
             #행정심판에 대한 자세한 사항은 중앙행정심판위원회(www.simpan.go.kr)의 홈페이지를 참조하시기 바랍니다.<br/>
             <br/>
             제 9조(개인정보 보호책임자 및 담당자 연락처)<br/>
@@ -260,9 +257,6 @@
             <br/>
 
 
-
-
-
         </div>
     </section>
 </section>
@@ -275,8 +269,6 @@
 </c:if>
 
 
-
-
 <script>
     $(document).ready(() => {
 
@@ -285,10 +277,10 @@
 
             let isRight = true;
             let isIdChecked = $("#isIdChecked").val()
-            if(isIdChecked !== "true"){
-              alert("체크아이디를 눌러 아이디 유효성 검사를 진행해 주세요.")
-              location.href ="<c:url value='/register/addUser'/>"
-              return ;
+            if (isIdChecked !== "true") {
+                alert("체크아이디를 눌러 아이디 유효성 검사를 진행해 주세요.")
+                <%--location.href ="<c:url value='/register/addUser'/>"--%>
+                return;
             }
 
             $("#form").find("input[type=text]").each(function (index, item) {
@@ -298,20 +290,17 @@
                     isRight = false;
                     return false;
                 }
-
             });
 
             if (!isRight) {
                 return;
             }
 
-
             $(this).prop("disabled", true);
             $(this).prop("disabled", false);
 
 
             let form = $("#form");
-            // alert("btn clicked")
             form.attr("action", "<c:url value='/register/addUser'/>")
             form.attr("method", "post")
             form.submit();
@@ -321,7 +310,12 @@
 
 
         $("#chkIdBtn").on("click", function () {
-            // alert("chk btn clicked")
+
+            if ($("#form").find("input[data-name=아이디]").val().trim() == '') {
+                alert("사용하실 아이디를 입력해 주세요");
+                return;
+            }
+
             let form = $("#form");
             form.attr("action", "<c:url value='/register/checkID'/>")
             form.attr("method", "post");
@@ -329,7 +323,6 @@
             // isIdChk = true;
 
         }); // id check
-
 
 
     });

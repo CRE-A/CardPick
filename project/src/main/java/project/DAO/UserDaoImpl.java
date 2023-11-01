@@ -104,7 +104,7 @@ public class UserDaoImpl implements UserDao {
 
     //spring-security login-process
     @Override
-    public UserDetailsDto selectUserINFO(String id)throws Exception {
+    public UserDetailsDto selectUserINFO(String id) {
         return session.selectOne(namespace + "selectUserINFO", id);
     }
 

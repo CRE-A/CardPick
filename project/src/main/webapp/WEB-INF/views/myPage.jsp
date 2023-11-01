@@ -40,6 +40,11 @@
         </div>
     </section>
     <section id="mypage">
+<%--        <div class="itemBox">--%>
+<%--            <span class="icon">⊙</span>--%>
+<%--            <span class="title">계정만료일:</span>--%>
+<%--            <span class="name">${userDto.expirationDate}</span>--%>
+<%--        </div>--%>
         <div class="itemBox">
             <span class="icon">⊙</span>
             <span class="title">이름:</span>

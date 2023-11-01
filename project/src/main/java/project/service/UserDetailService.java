@@ -26,34 +26,32 @@ public class UserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
 
-        UserDetailsDto userDetailsDto = null;
-
-        try {
-
-            userDetailsDto = userDao.selectUserINFO(id);
-//            if (userDetailsDto == null) {
-//                throw new UsernameNotFoundException("id" + id + " not found");
-//            }
-            checkExpirationDate(id);
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        UserDetailsDto userINFO = userDao.selectUserINFO(id);
+        if (userINFO == null) {
+            throw new UsernameNotFoundException("해당 사용자를 찾을 수 없습니다. : " + id);
         }
-        return userDetailsDto;
-    }
 
-    private void checkExpirationDate(String id) throws Exception {
-//        if (userInfo == null) return;
+        checkExpirationDate(userINFO);            //  계정만료일 지난 계정인지 체크
+        return userINFO;
+   }
 
-        UserDetailsDto userInfo = userDao.selectUserINFO(id);
-        Date regdate = userInfo.getRegdate();
+
+
+    private void checkExpirationDate(UserDetailsDto userInfo) {
+
+        Date now = new Date();
         Date expirationDate = userInfo.getExpirationDate();
 
-        if (regdate.after(expirationDate)) {                     // 계정만료일을 지났으면, 계정 정지
+        if (now.after(expirationDate)) {                     // 계정만료일을 지났으면, 계정 정지
             Map<String, Object> map = new HashMap();
             map.put("enabled", 0);
-            map.put("id", id);
-            userDao.changeEnabled(map);
+            map.put("id", userInfo.getId());
+
+            try {
+                userDao.changeEnabled(map);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
 
     }

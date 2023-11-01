@@ -33,7 +33,7 @@ public interface UserDao {
 
     int count(String id) throws Exception;
 
-    UserDetailsDto selectUserINFO(String id) throws Exception;
+    UserDetailsDto selectUserINFO(String id) ;
 
     int updateExpDateAndEnabled(UserDto userDto) throws Exception;
 
