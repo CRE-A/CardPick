@@ -36,8 +36,6 @@ public class AdminController {
     @GetMapping("/main")
     public String myPage(Model m, SearchCondition sc, String msg, RedirectAttributes rattr) throws Exception {
 
-        System.out.println("admin/main /// sc = " + sc);
-
         try {
             int totalCnt = userDao.SearchResultCnt(sc);
             PageHandler pageHandler = new PageHandler(sc,totalCnt);

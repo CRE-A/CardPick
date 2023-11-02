@@ -26,7 +26,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public int SearchResultCnt(SearchCondition sc)  throws Exception {
-        System.out.println("/userDaoImpl   /// searchResultCnt");
         return session.selectOne(namespace + "searchResultCnt", sc);
     }
 
