@@ -5,14 +5,14 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-input{
+input {
     padding-left: 5px;
 }
 
 img {
     width: 100%;
     vertical-align: top;
-    cursor : pointer;
+    cursor: pointer;
 }
 
 body {
@@ -24,7 +24,7 @@ section#container {
     flex-direction: column;
     /*align-items: center;*/
     justify-content: space-between;
-    width:600px;
+    width: 600px;
     height: 900px;
     position: absolute;
     top: 50%;
@@ -34,9 +34,10 @@ section#container {
 
 }
 
-.return {
-    border: none;
-    background: none;
+#nav .return {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
@@ -58,8 +59,15 @@ section#container {
 
 .info {
     position: absolute;
-    left: 23px;
+    left: 40px;
     top: 30px;
+    font-size: 12px;
+}
+
+.sub {
+    position: absolute;
+    left: 131px;
+    top: 49px;
     font-size: 12px;
 }
 
@@ -130,7 +138,7 @@ button.modifyBtn {
     border-radius: 5px;
     width: 100px;
     height: 40px;
-    cursor : pointer;
+    cursor: pointer;
 }
 
 .password span,
@@ -161,14 +169,14 @@ hr {
 }
 
 
-#nav{
+#nav {
     width: 100%;
     height: 80px;
-    background : white;
+    background: white;
 }
 
-#nav div{
-    margin-top : 20px;
+#nav div {
+    margin-top: 20px;
     margin-left: 33px;
 }
 
@@ -180,18 +188,26 @@ hr {
     padding-right: 3px;
     width: 100%;
     height: 68.5px;
-    background : lightgrey;
+    background: lightgrey;
 }
 
 
-#nav .return img{
+#nav .return img {
     width: 7%;
-    cursor : pointer;
+    cursor: pointer;
+    position: relative;
+    right: 18px;
+    margin-right: 22px;
+    margin-left: 26px;
 }
 
-#footer .return img{
+#footer .return img {
     width: 20%;
-    cursor : pointer;
+    cursor: pointer;
 }
 
+button.return {
+    border: none;
+    background: none;
+}
 

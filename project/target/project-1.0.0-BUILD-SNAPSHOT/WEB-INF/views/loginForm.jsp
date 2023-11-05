@@ -39,13 +39,13 @@
                         <span>
                           <i class="fa-solid fa-user"></i>
                         </span>
-                        <input name="id" type="text">
+                        <input required name="id" type="text">
                     </div>
                     <div class="loginBox1 password">
                         <span>
                           <i class="fa-solid fa-lock"></i>
                         </span>
-                        <input name="pwd" type="password">
+                        <input required name="pwd" type="password">
                     </div>
                 </div>
                 <div id="loginBox2">
