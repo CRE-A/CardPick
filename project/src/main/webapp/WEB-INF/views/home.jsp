@@ -4,7 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -21,9 +20,9 @@
 <body>
 <div class="wrap__card">
     <section id="nav">
-<%--        <button class="return" type="button" onclick="location.href='<c:url value='/user/main'/>'">--%>
-<%--            <i class="fa-solid fa-gears fa-rotate-270"></i>--%>
-<%--        </button>--%>
+        <%--        <button class="return" type="button" onclick="location.href='<c:url value='/user/main'/>'">--%>
+        <%--            <i class="fa-solid fa-gears fa-rotate-270"></i>--%>
+        <%--        </button>--%>
         <security:authorize access="hasRole('ROLE_USER')">
             <button class="return" type="button" onclick="location.href='<c:url value='/user/main'/>'">
                 <i class="fa-solid fa-gears fa-rotate-270"></i>
@@ -126,7 +125,7 @@
         <button class="return" type="button" onclick="copyUrl()">
             <img src="<c:url value='/iconImg/link.png'/>" alt=""/>
         </button>
-        <button class="return" type="button" onclick="location.href='<c:url value='/card/deleteAll'/>'">
+        <button class="return" type="button" id="deleteAll">
             <img src="<c:url value='/iconImg/rotate.png'/>" alt=""/>
         </button>
         <button class="return" type="button" onclick="location.href='<c:url value='/card/selectedCardList'/>'">
@@ -143,6 +142,18 @@
 </c:if>
 
 <script>
+
+    const deleteAll = document.querySelector("#deleteAll");
+    deleteAll.addEventListener("click", () => {
+        const msg = confirm("리스트 전체를 삭제합니다. 진행하시겠습니까?");
+
+        if (msg) {
+            location.href = '<c:url value='/card/deleteAll'/>';
+        }
+
+
+    })
+
     function copyUrl() {
         navigator.clipboard.writeText(window.location.href).then(res => {
             alert("주소가 복사되었습니다");

@@ -13,16 +13,18 @@
     <title>PIB</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<c:url value='/css/selectedCardList.css'/>"/>
+    <%-- FontAwesome--%>
+    <script src="https://kit.fontawesome.com/43ede2213f.js" crossorigin="anonymous"></script>
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 </head>
 <body>
 <div class="wrap__card">
     <%--    <div class="card__inner">--%>
     <section id="nav">
-<%--        <div class="return" onclick="location.href='<c:url value='/'/>'">--%>
-        <div class="return" >
-            <img src="<c:url value='/iconImg/goback.png'/>"   alt=""  onclick="location.href='<c:url value='/'/>'" />
-<%--            <img id="hidden_img" src="<c:url value='/iconImg/minus.png'/>" alt=""/>--%>
-<%--            <img src="<c:url value='/iconImg/minus.png'/>" alt="" onclick=IconByCards() />--%>
+        <div class="return">
+            <%--            <img src="<c:url value='/iconImg/white.png'/>" alt="" onclick="location.href='<c:url value='/'/>'"/>--%>
+            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
         </div>
     </section>
 
@@ -30,6 +32,8 @@
     <ul class="cards">
         <c:forEach var="selectedCardsList" items="${selectedCardsList}">
             <li>
+                <i id="deleteBtn" class="fa-regular fa-circle-xmark" onclick="location.href='<c:url
+                        value='/card/deleteCard?${_csrf.parameterName}=${_csrf.token}&cardNo=${selectedCardsList.cardNo}'/>'"></i>
                 <div class="view front">
                     <img src="<c:url value='/img/card${selectedCardsList.cardNo}.jpg'/>" alt=""/>
                 </div>
@@ -37,19 +41,25 @@
                     <img src="<c:url value='/img/card${selectedCardsList.cardNo}f.jpg'/>" alt=""/>
                 </div>
             </li>
+
         </c:forEach>
     </ul>
-    <%--        </div>--%>
 
+
+    <%--        </div>--%>
     <section id="footer">
         <button class="return" type="button" onclick="copyUrl()">
             <img src="<c:url value='/iconImg/link.png'/>" alt=""/>
         </button>
-        <button class="return" type="button" onclick="location.href='<c:url value='/card/deleteAll'/>'">
+        <button id="minus" class="return" type="button" onclick="">
+            <img src="<c:url value='/iconImg/minus.png'/>" alt=""/>
+        </button>
+        <%--        <button id="deleteAll" class="return" type="button" onclick="location.href='<c:url value='/card/deleteAll'/>'">--%>
+        <button id="deleteAll" class="return" type="button">
             <img src="<c:url value='/iconImg/rotate.png'/>" alt=""/>
         </button>
-        <button class="return" type="button" onclick="location.href='<c:url value='/card/selectedCardList'/>'">
-            <img src="<c:url value='/iconImg/cardImg.png'/>" alt=""/>
+        <button class="return" type="button" onclick="location.href='<c:url value='/'/>'">
+            <img src="<c:url value='/iconImg/bottleImg.png'/>" alt=""/>
         </button>
     </section>
     <%--    </div>--%>
@@ -58,6 +68,16 @@
 
 <script>
     const cards = document.querySelectorAll(".cards li");
+    const deleteBtn = document.querySelectorAll("#deleteBtn");
+    const minus = document.querySelector("#minus");
+    const deleteAll = document.querySelector("#deleteAll");
+    deleteAll.addEventListener("click", () => {
+        const msg = confirm("리스트 전체를 삭제합니다. 진행하시겠습니까?");
+        if (msg) {
+            location.href = '<c:url value='/card/deleteAll'/>';
+        }
+    })
+
 
     cards.forEach(card => {
         card.addEventListener("click", flipCard);
@@ -77,13 +97,37 @@
         }
     };
 
-
     function copyUrl() {
         navigator.clipboard.writeText(window.location.href).then(res => {
             alert("주소가 복사되었습니다");
         })
     };
 
+    minus.addEventListener("click", () => {
+        deleteBtn.forEach(btn => btn.classList.toggle("active")
+        )
+    })
+
+
+    deleteBtn.forEach(btn =>
+        btn.addEventListener("click", () => {
+            const cardNo = btn.dataset.id;
+            $.ajax({
+                type: 'POST',
+                url: '<c:url value='/card/deleteCard?${_csrf.parameterName}=${_csrf.token}'/>',
+                Sheader: {"Content-Type": "application/json"},
+                dateType: 'json',
+                data: {cardNo: cardNo},
+                success: function (data, textStatus) {
+                    if (data.redirect) {
+                        // data.redirect contains the string URL to redirect to
+                        window.location.href = data.redirect;
+                    }
+                }
+
+            })
+        })
+    )
 
 
 </script>

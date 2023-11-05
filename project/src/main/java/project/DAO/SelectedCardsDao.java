@@ -9,7 +9,7 @@ public interface SelectedCardsDao {
 
     int insert(SelectedCardsDto selectedCardsDto) throws Exception;
 
-    int delete(String id) throws Exception;
+    int delete(SelectedCardsDto selectedCardsDto) throws Exception;
 
     int deleteAll(String id) throws Exception;
 

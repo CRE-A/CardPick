@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -23,33 +24,19 @@
 
 <section id="container">
     <section id="nav">
-        <div class="return" >
+        <div class="return">
             <img src="<c:url value='/iconImg/goback.png'/>" onclick="location.href='<c:url value='/'/>'" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-            <img src="<c:url value='/iconImg/white.png'/>" alt=""/>
-<%--            <img src="<c:url value='/iconImg/logout4.png'/>" onclick="location.href='<c:url value='/login/logout'/>'" alt=""/>--%>
             <img src="<c:url value='/iconImg/logout4.png'/>" onclick="logout()" alt=""/>
         </div>
     </section>
     <section id="mypage">
-<%--        <div class="itemBox">--%>
-<%--            <span class="icon">⊙</span>--%>
-<%--            <span class="title">계정만료일:</span>--%>
-<%--            <span class="name">${userDto.expirationDate}</span>--%>
-<%--        </div>--%>
+
         <div class="itemBox">
             <span class="icon">⊙</span>
             <span class="title">이름:</span>
-            <%--            <span class="info">사용가능 기간(2023.1.1~2023.1.1)</span>--%>
-            <%--            <span class="info">사용가능 기간(${userDto.regdate}~2023.1.1)</span>--%>
+            <%--            <span class="info">(사용가능 기간 : ${userDto.expirationDate}까지)</span>--%>
+            <span class="info">(사용가능 기간 : <fmt:formatDate pattern="yyyy-MM-dd"
+                                                          value="${userDto.expirationDate}"/>까지)</span>
             <span class="name">${userDto.name}</span>
         </div>
         <div class="itemBox">
@@ -81,13 +68,15 @@
             <div class="itemPwd">
                 <div class="password">
                     <span class="title">변경 패스워드 : </span>
-                    <input type="text" name="pwd" required/>
+                    <span class="sub">(5자 이상 입력)</span>
+                    <input type="text" name="pwd" id="password" required/>
                 </div>
                 <button class="none">패스워드 변경</button>
             </div>
             <div class="itemPwd">
                 <div class="password">
                     <span class="title">확인 패스워드 : </span>
+                    <span class="sub">(변경 패스워드 동일하게 입력)</span>
                     <input type="text" name="pwd2" required/>
                 </div>
                 <button class="updateBtn" type="button" id="changePwdBtn">패스워드 변경</button>
@@ -122,7 +111,7 @@
         <button class="return" type="button" onclick="copyUrl()">
             <img src="<c:url value='/iconImg/link.png'/>" alt=""/>
         </button>
-        <button class="return" type="button" onclick="location.href='<c:url value='/card/deleteAll'/>'">
+        <button class="return" type="button" id="deleteAll">
             <img src="<c:url value='/iconImg/rotate.png'/>" alt=""/>
         </button>
         <button class="return" type="button" onclick="location.href='<c:url value='/card/selectedCardList'/>'">
@@ -143,6 +132,23 @@
 
     let passCheck = true;
     let idCheck = true;
+
+    const deleteAll = document.querySelector("#deleteAll");
+    deleteAll.addEventListener("click", () => {
+        const msg = confirm("리스트 전체를 삭제합니다. 진행하시겠습니까?");
+
+        if (msg) {
+            location.href = '<c:url value='/card/deleteAll'/>';
+        }
+
+
+    })
+
+    function copyUrl() {
+        navigator.clipboard.writeText(window.location.href).then(res => {
+            alert("주소가 복사되었습니다");
+        })
+    }
 
     function idChk() {
         const id = document.frm.id.value;
@@ -213,7 +219,8 @@
 
 
     }
-    function logout(){
+
+    function logout() {
         let f = document.createElement('form');
         f.setAttribute('method', 'post');
         f.setAttribute('action', '<c:url value='/login/logout?${_csrf.parameterName}=${_csrf.token}'/>');
@@ -229,6 +236,8 @@
     $(document).ready(() => {
 
         $("#changePwdBtn").on("click", function () {
+
+       
             // alert("btn clicked")
             let form = $("#pwdForm");
             form.attr("action", "<c:url value="/user/changePwd?${_csrf.parameterName}=${_csrf.token}"/>");

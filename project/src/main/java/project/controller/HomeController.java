@@ -16,9 +16,9 @@ import java.io.IOException;
 public class HomeController {
 
 
-
     @RequestMapping("/")
     public String home() {
+        System.out.println("home");
         return "home";
     }
 
@@ -30,9 +30,9 @@ public class HomeController {
     }
 
     @PostMapping("/test")
-    public String test(){
-        return "home";}
-
+    public String test() {
+        return "home";
+    }
 
 
 }

@@ -15,24 +15,34 @@
     <style>
         a {
             text-decoration: none;
-            margin : 0px 5px 0 5px;
+            margin: 0px 5px 0 5px;
         }
+
         body {
             background: #f5f3fa;
         }
-        #section{
-            width:900px;
+
+        .main {
+            min-height: 517px;
+        }
+
+        #section {
+            width: 850px;
             height: 600px;
-            transform: translate(20%, 10%);
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-color: white;
             padding: 20px 20px 20px 20px;
         }
-        #pageBar{
+
+        #pageBar {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            left:50%;
+            left: 50%;
         }
     </style>
 </head>
@@ -100,7 +110,7 @@
                                         <td class="phone"><input type="hidden" name="phone"
                                                                  value="${userDtoList.phone}">${userDtoList.phone}</td>
                                         <td class="regdate">
-                                            <input type="date" name="regdate"readonly
+                                            <input type="date" name="regdate" readonly
                                                    value="<fmt:formatDate pattern="yyyy-MM-dd" value="${userDtoList.regdate}"/>">
                                         </td>
                                         <td class="expirationDate">
@@ -111,9 +121,12 @@
                                             <input class="userBtn" type="submit" value="저장">
                                         </td>
                                         <td class="userState">
-                                            <c:if test="${userDtoList.enabled ==  1}"><span style="color: green">활성</span></c:if>
-                                            <c:if test="${userDtoList.enabled ==  0}"><span style="color: orangered">정지</span></c:if>
-                                            <c:if test="${userDtoList.enabled == -1}"><span style="color: blue">승인대기</span></c:if>
+                                            <c:if test="${userDtoList.enabled ==  1}"><span
+                                                    style="color: green">활성</span></c:if>
+                                            <c:if test="${userDtoList.enabled ==  0}"><span
+                                                    style="color: orangered">정지</span></c:if>
+                                            <c:if test="${userDtoList.enabled == -1}"><span
+                                                    style="color: blue">승인대기</span></c:if>
                                         </td>
                                     </tr>
                                 </form>

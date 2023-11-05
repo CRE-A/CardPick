@@ -88,11 +88,13 @@
                         <span>패스워드:</span>
                     </div>
                     <input
+                            id="password"
                             required
                             placeholder="패스워드"
                             type="password"
                             name="pwd"
                     />
+                    <span class="sub">패스워드를 다섯글자 이상 입력하세요</span>
                     <div class="inputBox items span">
                         <span id="pwdSpan"> (5자 이상 입력)</span>
                     </div>
@@ -300,16 +302,29 @@
             $(this).prop("disabled", false);
 
 
+            const password = document.querySelector("#password").value;
+            console.log(password);
+            if (password.length < 5) {
+                // 비밀번호 길이가 5 미만이면 제출을 중단하고 에러 메시지를 표시
+                document.querySelector(".sub").classList.add("error");
+                return;
+            } else {
+                // 비밀번호가 유효하면 에러 메시지를 지우고 제출을 허용
+                document.querySelector(".sub").classList.remove("error");
+            }
+            // alert("1");
+
             let form = $("#form");
             form.attr("action", "<c:url value='/register/addUser'/>")
             form.attr("method", "post")
             form.submit();
+            alert("2")
 
         }); // register
 
 
-
         $("#chkIdBtn").on("click", function () {
+            alert("3")
 
             if ($("#form").find("input[data-name=아이디]").val().trim() == '') {
                 alert("사용하실 아이디를 입력해 주세요");
@@ -326,6 +341,8 @@
 
 
     });
+
+
 </script>
 </body>
 </html>

@@ -12,14 +12,15 @@
     </select>
 
     <insert id="insert" parameterType="SelectedCardsDto">
-        INSERT INTO selectedcards ( id, cardNo, regdate)
+        INSERT INTO selectedcards (id, cardNo, regdate)
         VALUES (#{id}, #{cardNo}, now());
     </insert>
 
-    <delete id="delete" parameterType="String">
+    <delete id="delete" parameterType="SelectedCardsDto">
         DELETE
         FROM selectedcards
-        WHERE id = #{id};
+        WHERE id = #{id}
+          AND cardNo = #{cardNo};
     </delete>
 
     <delete id="deleteAll" parameterType="String">

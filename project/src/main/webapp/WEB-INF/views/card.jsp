@@ -13,14 +13,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="<c:url value='/css/card.css'/>"/>
 
+
 </head>
 <body>
 <div class="wrap__card">
     <section id="nav">
-        <div class="return" >
-            <img src="<c:url value='/iconImg/goback.png'/>" onclick="location.href='<c:url value='/card/prevPage?no=${No}'/>'"   alt=""/>
+        <div class="return">
+            <img src="<c:url value='/iconImg/goback.png'/>"
+                 onclick="location.href='<c:url value='/card/prevPage?no=${No}'/>'" alt=""/>
             <img src="<c:url value='/iconImg/bottleImg.png'/>" onclick="location.href='<c:url value='/'/>'" alt=""/>
-        <div class="return" onclick="location.href='<c:url value='/'/>'">
+            <div class="return" onclick="location.href='<c:url value='/'/>'">
     </section>
     <div class="card__inner">
         <ul class="cards">
@@ -38,7 +40,7 @@
         <button class="return" type="button" onclick="copyUrl()">
             <img src="<c:url value='/iconImg/link.png'/>" alt=""/>
         </button>
-        <button class="return" type="button" onclick="location.href='<c:url value='/card/deleteAll'/>'">
+        <button class="return" type="button" id="deleteAll">
             <img src="<c:url value='/iconImg/rotate.png'/>" alt=""/>
         </button>
         <button class="return" type="button" onclick="location.href='<c:url value='/card/selectedCardList'/>'">
@@ -50,6 +52,16 @@
 
 <script>
     const cards = document.querySelectorAll(".cards li");
+    const deleteAll = document.querySelector("#deleteAll");
+    deleteAll.addEventListener("click", () => {
+        const msg = confirm("리스트 전체를 삭제합니다. 진행하시겠습니까?");
+
+        if (msg) {
+            location.href = '<c:url value='/card/deleteAll'/>';
+        }
+
+
+    })
 
     cards.forEach(card => {
         card.addEventListener("click", flipCard);

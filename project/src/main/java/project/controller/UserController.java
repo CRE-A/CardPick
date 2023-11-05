@@ -58,7 +58,6 @@ public class UserController {
     }
 
 
-
     @PostMapping("/updatePWD")
     public void updateTmpPassword(String id, String TmpPassword) throws Exception {
 
@@ -77,9 +76,9 @@ public class UserController {
         userDetailsDto.setId(getId(auth));
         int cnt = userDao.changeDptPhone(userDetailsDto);
         if (cnt == 1) {
-            m.addAttribute("msg", "프로필 정보가 수정되었습니다.");
+            m.addAttribute("msg", "소속, 전화번호가 수정되었습니다.");
         } else {
-            m.addAttribute("msg", "프로필 수정에 실패했습니다.");
+            m.addAttribute("msg", "프로필 정보 수정에 실패했습니다.");
         }
 
         return "redirect:/user/main";
