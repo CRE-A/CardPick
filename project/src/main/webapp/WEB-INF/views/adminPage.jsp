@@ -30,7 +30,7 @@
         }
 
         #section {
-            width: 900px;
+            width: 1100px;
             height: 600px;
             position: relative;
             top: 50%;
