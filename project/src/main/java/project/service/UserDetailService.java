@@ -43,7 +43,6 @@ public class UserDetailService implements UserDetailsService {
         if(isRegisteredUser(userInfo)){                     // 회원가입 후 승인 대기중인 계정은, 빠져나감
             return ;
         }
-            System.out.println("1");
 
         Date now = new Date();
         Date expirationDate = userInfo.getExpirationDate();

@@ -53,7 +53,7 @@ public class CardController {
         }
 
         // 이미 고른 카드라면, 뒤로가기
-        if (isSelectedCard(id, no)){
+        if (isSelectedCard(id, no)) {
             String ind = getIndex(no);
             m.addAttribute("ind", ind);
             m.addAttribute("msg", "이미 선택한 카드입니다.");
@@ -65,7 +65,6 @@ public class CardController {
         m.addAttribute("No", no);
         return "card";
     }
-
 
 
     @GetMapping("/selectedCardList")
@@ -81,7 +80,6 @@ public class CardController {
 
     @GetMapping("/deleteAll")
     public void deleteAllSelectedCards(Authentication auth, Model m, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        System.out.println("/deleteAll  /// ");
 
         try {
             selectedCardsDao.deleteAll(getId(auth));
@@ -98,27 +96,23 @@ public class CardController {
     }
 
 
-
     @GetMapping("/deleteCard")
     public String deleteSelectedCard(Authentication auth, Model m, SelectedCardsDto selectedCardsDto, RedirectAttributes rattr) throws Exception {
 
         selectedCardsDto.setId(getId(auth));
 
         try {
-            int cnt = selectedCardsDao.delete(selectedCardsDto);
-            System.out.println("cnt = " + cnt);
-
+            selectedCardsDao.delete(selectedCardsDto);
 
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("error delete");
-            return "redirect:/card/selectedCardList";
 
         } finally {
 
             List<SelectedCardsDto> selectedCardsList = selectedCardsDao.select(getId(auth));
             m.addAttribute("selectedCardsList", selectedCardsList);
-            m.addAttribute("clicked","true");
-            System.out.println("deleteCard // finally ");
+            m.addAttribute("clicked", "true");
 
             return "selectedCardList";
         }
@@ -131,7 +125,6 @@ public class CardController {
     public String goPrevPage(String no, Model m) {
 
         String ind = getIndex(no);
-
         m.addAttribute("ind", ind);
         return "cardList";
 

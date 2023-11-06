@@ -27,13 +27,11 @@ public class SelectedCardsDaoImpl implements SelectedCardsDao {
 
     @Override
     public int delete(SelectedCardsDto selectedCardsDto) throws Exception {
-        System.out.println("selectedCardDaoImpl //  selectedCardsDto = " + selectedCardsDto);
         return session.delete(namespace + "delete", selectedCardsDto);
     }
 
     @Override
     public int deleteAll(String id) throws Exception {
-        System.out.println("/CardDaoImpl   /// deleteAll, id =" + id);
         return session.delete(namespace + "deleteAll", id);
     }
 
