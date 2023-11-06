@@ -14,4 +14,6 @@ public interface SelectedCardsDao {
     int deleteAll(String id) throws Exception;
 
     int count(String id) throws Exception;
+
+    int isSelectedCard(SelectedCardsDto dto) throws Exception;
 }

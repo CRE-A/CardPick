@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.DTO.UserDetailsDto;
 import project.DAO.UserDao;
 import project.DTO.UserDto;
@@ -75,7 +76,7 @@ public class RegisterController {
 
 
     @PostMapping("/findPwd")
-    public String findPwd(UserDetailsDto userDetailsDto, Model m, HttpServletRequest req) throws Exception {
+    public String findPwd(UserDetailsDto userDetailsDto, Model m) throws Exception {
 
         int cnt = userDao.validation(userDetailsDto);
         if (cnt != 1) {
@@ -93,11 +94,5 @@ public class RegisterController {
     }
 
 
-    private boolean duplicateCheck(UserDetailsDto userDetailsDto) throws Exception {
-
-        UserDetailsDto userDto = userDao.select(userDetailsDto.getUsername());
-        System.out.println("DuplicateCheck // user = " + userDto);
-        return userDto == null || userDto.getUsername().equals("");
-    }
 
 }

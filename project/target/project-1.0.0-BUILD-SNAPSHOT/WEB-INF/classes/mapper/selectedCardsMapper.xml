@@ -35,4 +35,11 @@
         WHERE id = #{id};
     </select>
 
+    <select id="isSelectedCard" parameterType="SelectedCardsDto" resultType="int">
+        SELECT count(*)
+        FROM selectedcards
+        WHERE id = #{id}
+        AND cardNo = #{cardNo};
+    </select>
+
 </mapper>

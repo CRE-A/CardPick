@@ -68,7 +68,7 @@ section#container {
     position: absolute;
     left: 131px;
     top: 49px;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .message {
@@ -148,7 +148,8 @@ button.modifyBtn {
 
 .item span,
 .item input[type="text"] {
-    margin-right: 16px;
+    /*margin-right: 16px;*/
+    margin-right: 32px;
 }
 
 .password input[type="text"],

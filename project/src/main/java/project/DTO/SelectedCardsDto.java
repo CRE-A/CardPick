@@ -10,9 +10,7 @@ public class SelectedCardsDto {
     private Date regdate;
 
     public SelectedCardsDto() {
-    }
-
-    ;
+    };
 
     public SelectedCardsDto(String id, String cardNo) {
         this.id = id;

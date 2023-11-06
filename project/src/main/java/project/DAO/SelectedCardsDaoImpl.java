@@ -42,4 +42,9 @@ public class SelectedCardsDaoImpl implements SelectedCardsDao {
         return session.selectOne(namespace + "count", id);
     }
 
+    @Override
+    public int isSelectedCard(SelectedCardsDto dto) throws Exception {
+        return session.selectOne(namespace + "isSelectedCard", dto);
+    }
+
 }

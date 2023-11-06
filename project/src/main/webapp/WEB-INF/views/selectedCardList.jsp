@@ -65,6 +65,15 @@
     <%--    </div>--%>
 </div>
 
+<c:if test="${clicked !=null}">
+<%--<c:if test="${clicked eq 'true'}">--%>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            document.querySelector("#minus").click();
+        });
+    </script>
+</c:if>
+
 
 <script>
     const cards = document.querySelectorAll(".cards li");
@@ -109,25 +118,25 @@
     })
 
 
-    deleteBtn.forEach(btn =>
-        btn.addEventListener("click", () => {
-            const cardNo = btn.dataset.id;
-            $.ajax({
-                type: 'POST',
-                url: '<c:url value='/card/deleteCard?${_csrf.parameterName}=${_csrf.token}'/>',
-                Sheader: {"Content-Type": "application/json"},
-                dateType: 'json',
-                data: {cardNo: cardNo},
-                success: function (data, textStatus) {
-                    if (data.redirect) {
-                        // data.redirect contains the string URL to redirect to
-                        window.location.href = data.redirect;
-                    }
-                }
+    <%--deleteBtn.forEach(btn =>--%>
+    <%--    btn.addEventListener("click", () => {--%>
+    <%--        const cardNo = btn.dataset.id;--%>
+    <%--        $.ajax({--%>
+    <%--            type: 'POST',--%>
+    <%--            url: '<c:url value='/card/deleteCard?${_csrf.parameterName}=${_csrf.token}'/>',--%>
+    <%--            Sheader: {"Content-Type": "application/json"},--%>
+    <%--            dateType: 'json',--%>
+    <%--            data: {cardNo: cardNo},--%>
+    <%--            success: function (data, textStatus) {--%>
+    <%--                if (data.redirect) {--%>
+    <%--                    // data.redirect contains the string URL to redirect to--%>
+    <%--                    window.location.href = data.redirect;--%>
+    <%--                }--%>
+    <%--            }--%>
 
-            })
-        })
-    )
+    <%--        })--%>
+    <%--    })--%>
+    <%--)--%>
 
 
 </script>

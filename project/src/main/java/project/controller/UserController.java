@@ -38,11 +38,20 @@ public class UserController {
     @PostMapping("/changePwd")
     public String changePwd(Model m, UserDetailsDto userDetailsDto) throws Exception {
 
-        //유효성 검사
+        // 유효성 검사
         if (!(isAthenticated(userDetailsDto))) {
-            m.addAttribute("msg", "현재 비밀번호를 다시 입력해 주세요.");
+            m.addAttribute("msg", "현재 패스워드를 다시 입력해 주세요");
             return "redirect:/user/main";
         }
+        if (userDetailsDto.getPassword()==null || userDetailsDto.getPassword().equals("") || userDetailsDto.getPassword().length()<5){
+            m.addAttribute("msg","변경 패스워드를 5자 이상 입력해 주세요");
+            //            m.addAttribute("msg","변경 패스워드를 입력해 주세요");
+            return "redirect:/user/main";
+        }
+//        if (userDetailsDto.getPassword().length()<5){
+//            m.addAttribute("msg","변경 패스워드를 5자 이상 입력해 주세요");
+//            return "redirect:/user/main";
+//        }
 
 
         String encodedPassword = bCryptPasswordEncoder.encode(userDetailsDto.getPassword());
@@ -72,6 +81,17 @@ public class UserController {
 
     @PostMapping("/changeDptPhone")
     public String modifyProfile(Model m, UserDetailsDto userDetailsDto, Authentication auth) throws Exception {
+
+        // 유효성 검사
+        if (userDetailsDto.getDpt()==null || userDetailsDto.getDpt().equals("")){
+            m.addAttribute("msg","소속을 입력해 주세요");
+            return "redirect:/user/main";
+        }
+        if (userDetailsDto.getPhone()==null || userDetailsDto.getPhone().equals("")){
+            m.addAttribute("msg","전화번호를 입력해 주세요");
+            return "redirect:/user/main";
+        }
+
 
         userDetailsDto.setId(getId(auth));
         int cnt = userDao.changeDptPhone(userDetailsDto);

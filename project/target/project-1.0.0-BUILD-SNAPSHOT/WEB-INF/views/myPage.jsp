@@ -35,8 +35,10 @@
             <span class="icon">⊙</span>
             <span class="title">이름:</span>
             <%--            <span class="info">(사용가능 기간 : ${userDto.expirationDate}까지)</span>--%>
-            <span class="info">(사용가능 기간 : <fmt:formatDate pattern="yyyy-MM-dd"
-                                                          value="${userDto.expirationDate}"/>까지)</span>
+            <span class="info">(사용가능 기간 :
+                <fmt:formatDate pattern="yyyy-MM-dd" value="${userDto.regdate}"/> ~
+                <fmt:formatDate pattern="yyyy-MM-dd" value="${userDto.expirationDate}"/> 까지)
+            </span>
             <span class="name">${userDto.name}</span>
         </div>
         <div class="itemBox">
@@ -128,6 +130,8 @@
 </c:if>
 
 
+
+
 <script>
 
     let passCheck = true;
@@ -150,75 +154,6 @@
         })
     }
 
-    function idChk() {
-        const id = document.frm.id.value;
-        console.log(id)
-        let resultText = document.querySelector("#result");
-
-        // if (id.indexOf('@') != -1 && id.indexOf('.com') != -1) {
-        if (id.indexOf('') !== -1) {
-
-            <%--            <security:authorize access="isAnonymous()">--%>
-            $.ajax({
-                type: 'POST',
-                <%--url:'${pageContext.request.contextPath}/member/readId',--%>
-                url: '<c:url value='/register/checkID'/>',
-                Sheader: {"Content-Type": "application/json"},
-                dateType: 'json',
-                data: {id: id},
-                success: function (result) {
-                    console.log("result = " + result)
-                    if (result == true) {
-                        resultText.style.color = 'red'
-                        resultText.innerHTML = '중복되는 아이디'
-                        idCheck = true
-                        inputCheck()
-                    } else {
-                        resultText.style.color = 'blue'
-                        resultText.innerHTML = '사용가능한 아이디'
-                        idCheck = false
-                        inputCheck()
-                    }
-                }
-            })
-        } else {
-            result.style.color = 'red'
-            result.innerHTML = '일치하지 않는 형식'
-        }
-        <%--        </security:authorize>--%>
-    }
-
-    function inputCheck() {
-        if (idCheck == false) {
-            const submit = document.querySelector("#registerBtn");
-            submit.disabled = false;
-        } else {
-            submit.disabled = true;
-        }
-    }
-
-    function passChk() {
-        const pass = document.frm.pwd.value
-        const passChk = document.querySelector(".user_pwd_check").value;
-        console.log(passChk);
-        let result = document.querySelector("#passResult")
-
-        if (pass == passChk) {
-            result.style.color = 'blue'
-            result.innerHTML = '일치하는 비밀번호'
-            passCheck = false
-            inputCheck()
-
-        } else {
-            result.style.color = 'red'
-            result.innerHTML = '일치하지 않는 비밀번호'
-
-            passCheck = true
-            inputCheck()
-        }
-
-
-    }
 
     function logout() {
         let f = document.createElement('form');
@@ -237,7 +172,6 @@
 
         $("#changePwdBtn").on("click", function () {
 
-       
             // alert("btn clicked")
             let form = $("#pwdForm");
             form.attr("action", "<c:url value="/user/changePwd?${_csrf.parameterName}=${_csrf.token}"/>");

@@ -25,9 +25,12 @@
         .main {
             min-height: 517px;
         }
+        .userList{
+            width: 100%;
+        }
 
         #section {
-            width: 850px;
+            width: 900px;
             height: 600px;
             position: relative;
             top: 50%;

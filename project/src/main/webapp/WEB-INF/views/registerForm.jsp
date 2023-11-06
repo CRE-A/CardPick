@@ -144,7 +144,7 @@
                 <input required type="checkbox" data-name="정보동의"/>
                 <label for="">정보 동의</label>
             </div>
-            <button class="registerBtn" type="submit" id="registerBtn">
+            <button class="registerBtn" type="button" id="registerBtn">
                 신규가입
             </button>
         </div>
@@ -277,6 +277,7 @@
 
         $("#registerBtn").on("click", () => {
 
+            // IDCheck 검사
             let isRight = true;
             let isIdChecked = $("#isIdChecked").val()
             if (isIdChecked !== "true") {
@@ -285,6 +286,8 @@
                 return;
             }
 
+
+            // 각 항목 별 유효성 검사
             $("#form").find("input[type=text]").each(function (index, item) {
                 // 아무값없이 띄어쓰기만 있을 때도 빈 값으로 체크되도록 trim() 함수 호출
                 if ($(this).val().trim() == '') {
@@ -293,7 +296,6 @@
                     return false;
                 }
             });
-
             if (!isRight) {
                 return;
             }
@@ -302,32 +304,37 @@
             $(this).prop("disabled", false);
 
 
+
+            //password 유효성 검사
             const password = document.querySelector("#password").value;
-            console.log(password);
             if (password.length < 5) {
                 // 비밀번호 길이가 5 미만이면 제출을 중단하고 에러 메시지를 표시
                 document.querySelector(".sub").classList.add("error");
+                alert("패스워드를 5자 이상 입력하세요");
                 return;
             } else {
                 // 비밀번호가 유효하면 에러 메시지를 지우고 제출을 허용
                 document.querySelector(".sub").classList.remove("error");
             }
-            // alert("1");
+            // // alert("1");
 
+
+            //회원가입 post 요청
             let form = $("#form");
             form.attr("action", "<c:url value='/register/addUser'/>")
             form.attr("method", "post")
             form.submit();
-            alert("2")
 
         }); // register
 
 
         $("#chkIdBtn").on("click", function () {
-            alert("3")
 
             if ($("#form").find("input[data-name=아이디]").val().trim() == '') {
                 alert("사용하실 아이디를 입력해 주세요");
+                return;
+            }else if($("#form").find("input[data-name=아이디]").val().length <6){
+                alert("아이디를 6자 이상 입력하세요");
                 return;
             }
 
