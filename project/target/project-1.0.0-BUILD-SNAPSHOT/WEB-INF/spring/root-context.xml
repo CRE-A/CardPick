@@ -44,6 +44,8 @@
         <property name="port" value="587"/>
         <!--		<property name="username" value="아이디@gmail.com" />-->
         <!--		<property name="password" value="앱비밀번호 16digit" />-->
+        <property name="username" value="ddubijoa@gmail.com" />
+        <property name="password" value="aihn eudz nbow kyfu" />
         <property name="defaultEncoding" value="utf-8"/>
         <property name="javaMailProperties">
             <props>

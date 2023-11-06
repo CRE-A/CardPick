@@ -82,7 +82,7 @@ public class UserController {
     @PostMapping("/changeDptPhone")
     public String modifyProfile(Model m, UserDetailsDto userDetailsDto, Authentication auth) throws Exception {
 
-        // 유효성 검사
+        // 유효성 검사 (null check)
         if (userDetailsDto.getDpt()==null || userDetailsDto.getDpt().equals("")){
             m.addAttribute("msg","소속을 입력해 주세요");
             return "redirect:/user/main";
@@ -91,6 +91,18 @@ public class UserController {
             m.addAttribute("msg","전화번호를 입력해 주세요");
             return "redirect:/user/main";
         }
+
+
+        // 유효성 검사  (너무 긴 string check)
+        if (userDetailsDto.getDpt().length()>20){
+            m.addAttribute("msg","소속 항목 허용 글자수를 초과했습니다.");
+            return "redirect:/user/main";
+        }
+        if (userDetailsDto.getPhone().length()>20){
+            m.addAttribute("msg","전화번호 항목 허용 글자수를 초과했습니다.");
+            return "redirect:/user/main";
+        }
+
 
 
         userDetailsDto.setId(getId(auth));
