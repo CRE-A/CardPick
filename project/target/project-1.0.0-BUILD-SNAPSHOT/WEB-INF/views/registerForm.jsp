@@ -295,6 +295,11 @@
                     isRight = false;
                     return false;
                 }
+                if ($(this).val().trim().length > 22) {
+                    alert($(this).attr("data-name") + " 항목 허용 글자수를 초과했습니다.");
+                    isRight = false;
+                    return false;
+                }
             });
             if (!isRight) {
                 return;
@@ -305,7 +310,7 @@
 
 
 
-            //password 유효성 검사
+            // password 유효성 검사
             const password = document.querySelector("#password").value;
             if (password.length < 5) {
                 // 비밀번호 길이가 5 미만이면 제출을 중단하고 에러 메시지를 표시
@@ -319,7 +324,7 @@
             // // alert("1");
 
 
-            //회원가입 post 요청
+            // 회원가입 post 요청
             let form = $("#form");
             form.attr("action", "<c:url value='/register/addUser'/>")
             form.attr("method", "post")
@@ -330,11 +335,15 @@
 
         $("#chkIdBtn").on("click", function () {
 
+            // ID 유효성 검사
             if ($("#form").find("input[data-name=아이디]").val().trim() == '') {
                 alert("사용하실 아이디를 입력해 주세요");
                 return;
             }else if($("#form").find("input[data-name=아이디]").val().length <6){
                 alert("아이디를 6자 이상 입력하세요");
+                return;
+            }else if($("#form").find("input[data-name=아이디]").val().length > 13){
+                alert("아이디를 12자 이하로 입력하세요");
                 return;
             }
 

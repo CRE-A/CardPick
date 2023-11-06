@@ -21,6 +21,27 @@
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGgEEcmo8EbPKj8kwDcpC8W18nIZvnq2U&callback=initMap"
   ></script>
   <style type="text/css">
+    * {
+      box-sizing: border-box;
+      margin: auto;
+    }
+
+    .error {
+      width: 600px;
+    }
+
+    .view {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+
     .btn {
       cursor: pointer;
       display: inline-block;
@@ -33,17 +54,11 @@
 </head>
 <body>
 
-
-<%--<div id="msg">--%>
-<%--  <c:if test="${LoginFailMessage!=null}">--%>
-<%--    <p> Error : <c:out value="${LoginFailMessage}"/> </p><br/>--%>
-<%--  </c:if>--%>
-<%--</div>--%>
 <div class="view">
-  <img src="<c:url value='/images/accessDeny.jpg'/>" alt=""/>
-</div>
-<button id="sendMain" class = 'btn' onclick="window.location.href='../../..'">홈으로</button>
+  <img class="error" src="<c:url value='/images/accessDeny.jpg'/>" alt=""/>
+  <button id="sendMain" class='btn' onclick="window.location.href='${request.contextPath}/'">홈으로</button>
 
+</div>
 
 
 
