@@ -1,4 +1,4 @@
-# 💡 CARD FLIP 
+# 💡 CARD PICK 
 
 <img src="https://user-images.githubusercontent.com/121703704/231820636-ee5eb48a-4b49-4843-ba23-fc1d0aea92a2.png" width=400px>
 
@@ -26,7 +26,7 @@
 
 이 프로젝트는 '연간 개발 계획'의 두번째 스텝(STEP 2)을 위해 만들어졌습니다. </br></br>
 &nbsp; STEP 1 : JSP + Spring MVC + MyBatis  [[NECTAR ](https://github.com/CRE-A/Nectar)] </br>
-&nbsp; STEP 2 : JSP + Spring MVC + MyBatis  [[Card Flip](https://github.com/CRE-A/CardFlip)] </br>
+&nbsp; STEP 2 : JSP + Spring MVC + MyBatis  [[Card PICK](https://github.com/CRE-A/CardFlip)] </br>
 &nbsp; STEP 3 : JSP + Spring BOOT + MyBatis    </br>
 &nbsp; STEP 4 : REACT + Spring Boot + MyBATIS    </br>
 &nbsp; STEP 5 : REACT + Spring Boot + JPA        </br>
