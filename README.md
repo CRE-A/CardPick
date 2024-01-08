@@ -9,14 +9,14 @@
 # 💡 프로젝트 소개 Introduction
 
 
-프로젝트에 대한 간략한 소개와 의의를 설명합니다.
+프로젝트에 대한 간략한 소개와 의의를 설명합니다.</br>
 
 
  ### 프로젝트의 설명 Description
 
 
 
-사용자의 성향, 성격이나 대운, 길흉을 종합적으로 점 칠 수 있는, 이른 바 타로카드 서비스를 제공하기 위해 만들었 습니다.
+사용자의 성향, 성격이나 대운, 길흉을 종합적으로 점 칠 수 있는, 이른 바 타로카드 서비스를 제공하기 위해 만들었습니다.</br>
 
 
 
@@ -30,7 +30,7 @@ STEP 2 : JSP + Spring MVC + MyBatis  [[Card Flip](https://github.com/CRE-A/C
 STEP 3 : JSP + Spring BOOT + MyBatis    </br>
 STEP 4 : REACT + Spring Boot + MyBATIS    </br>
 STEP 5 : REACT + Spring Boot + JPA        </br>
-STEP 6 : REACT + NODE.js                  </br></br></br>
+STEP 6 : REACT + NODE.js                  </br></br>
 
 
 
