@@ -1,4 +1,4 @@
-# 💡 CARD FLIP 카드플립
+# 💡 CARD FLIP 
 
 <img src="https://user-images.githubusercontent.com/121703704/231820636-ee5eb48a-4b49-4843-ba23-fc1d0aea92a2.png" width=400px>
 
