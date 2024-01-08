@@ -28,9 +28,9 @@
 STEP 1 : JSP + Spring MVC + MyBatis  [[NECTAR ](https://github.com/CRE-A/Nectar)] </br>
 STEP 2 : JSP + Spring MVC + MyBatis  [[Card Flip](https://github.com/CRE-A/CardFlip)] </br>
 STEP 3 : JSP + Spring BOOT + MyBatis    </br>
-Step 4 : REACT + Spring Boot + MyBATIS    </br>
-Step 5 : REACT + Spring Boot + JPA        </br>
-Step 6 : REACT + NODE.js                  </br></br></br>
+STEP 4 : REACT + Spring Boot + MyBATIS    </br>
+STEP 5 : REACT + Spring Boot + JPA        </br>
+STEP 6 : REACT + NODE.js                  </br></br></br>
 
 
 
