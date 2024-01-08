@@ -2,7 +2,7 @@
 
 <img src="https://user-images.githubusercontent.com/121703704/231820636-ee5eb48a-4b49-4843-ba23-fc1d0aea92a2.png" width=400px>
 
- MBTI 형태의 타로카드 서비스
+ MBTI 형태의 카드 픽 서비스
 
 
 
@@ -16,7 +16,7 @@
 
 
 
-사용자의 성향, 성격이나 대운, 길흉을 종합적으로 점 칠 수 있는, 이른 바 타로카드 서비스를 제공하기 위해 만들었습니다.</br>
+개인의 성향, 성격, 마음가짐, 태도 등을 알아보기 위해, 본 서비스를 만들었습니다.</br>
 
 
 
@@ -30,7 +30,7 @@
 &nbsp; STEP 3 : JSP + Spring BOOT + MyBatis    </br>
 &nbsp; STEP 4 : REACT + Spring Boot + MyBATIS    </br>
 &nbsp; STEP 5 : REACT + Spring Boot + JPA        </br>
-&nbsp; STEP 6 : REACT + NODE.js                  </br></br>
+&nbsp; STEP 6 : REACT + Node.js                  </br></br>
 
 
 
