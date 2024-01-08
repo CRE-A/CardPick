@@ -35,7 +35,7 @@
 
 
 
-# 💡 프로젝트 기술 소개 Technology List
+# 💡 프로젝트 기술 소개 Technology
 
 
 
