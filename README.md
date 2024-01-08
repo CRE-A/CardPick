@@ -12,7 +12,7 @@
 프로젝트에 대한 간략한 소개와 의의를 설명합니다.
 
 
- ### 프로젝트의 설명 Description of CARD FLIP
+ ### 프로젝트의 설명 Description
 
 
 
@@ -25,12 +25,12 @@
 
 
 이 프로젝트는 '연간 개발 계획'의 두번째 스텝(STEP 2)을 위해 만들어졌습니다.
-STEP 1 : JSP   + Spring MVC  + MyBatis     (NECTAR   https://github.com/CRE-A/Nectar)
-STEP 2 : JSP   + Spring MVC  + MyBatis     (Card Flip   현재 프로젝트)
-STEP 3 : JSP   + Spring BOOT + MyBatis    
-Step 4 : REACT + Spring Boot + MyBATIS 
-Step 5 : REACT + Spring Boot + JPA
-Step 6 : REACT + NODE.js
+<li>STEP 1 : JSP   + Spring MVC  + MyBatis     (NECTAR   https://github.com/CRE-A/Nectar)</li>
+<li>STEP 2 : JSP   + Spring MVC  + MyBatis     (Card Flip   현재 프로젝트)</li>
+<li>STEP 3 : JSP   + Spring BOOT + MyBatis    </li>
+<li>Step 4 : REACT + Spring Boot + MyBATIS    </li>
+<li>Step 5 : REACT + Spring Boot + JPA        </li>
+<li>Step 6 : REACT + NODE.js                  </li>
 
 
 
