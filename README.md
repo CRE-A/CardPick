@@ -23,7 +23,7 @@
  ### 프로젝트의 목적 Why we started this project
 
 
-
+[현재 프로젝트](https://github.com/CRE-A/Nectar)
 이 프로젝트는 '연간 개발 계획'의 두번째 스텝(STEP 2)을 위해 만들어졌습니다.
 <li>STEP 1 : JSP   + Spring MVC  + MyBatis (NECTAR   https://github.com/CRE-A/Nectar)</li>
 <li>STEP 2 : JSP   + Spring MVC  + MyBatis (Card Flip   [현재 프로젝트](https://github.com/CRE-A/Nectar))</li>
