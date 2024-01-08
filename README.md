@@ -24,13 +24,13 @@
 
 
 [현재 프로젝트](https://github.com/CRE-A/Nectar)
-이 프로젝트는 '연간 개발 계획'의 두번째 스텝(STEP 2)을 위해 만들어졌습니다.
-<li>STEP 1 : JSP   + Spring MVC  + MyBatis </li>([NECTAR](https://github.com/CRE-A/Nectar)
-<li>STEP 2 : JSP   + Spring MVC  + MyBatis </li>([Card Flip](https://github.com/CRE-A/CardFlip))
-<li>STEP 3 : JSP   + Spring BOOT + MyBatis    </li>
-<li>Step 4 : REACT + Spring Boot + MyBATIS    </li>
-<li>Step 5 : REACT + Spring Boot + JPA        </li>
-<li>Step 6 : REACT + NODE.js                  </li>
+이 프로젝트는 '연간 개발 계획'의 두번째 스텝(STEP 2)을 위해 만들어졌습니다. </br>
+STEP 1 : JSP   + Spring MVC  + MyBatis ([NECTAR](https://github.com/CRE-A/Nectar) </br>
+STEP 2 : JSP   + Spring MVC  + MyBatis ([Card Flip](https://github.com/CRE-A/CardFlip)) </br>
+STEP 3 : JSP   + Spring BOOT + MyBatis    </br>
+Step 4 : REACT + Spring Boot + MyBATIS    </br>
+Step 5 : REACT + Spring Boot + JPA        </br>
+Step 6 : REACT + NODE.js                  </br>
 
 
 
