@@ -1,5 +1,6 @@
 # 💡 CARD PICK 
-![image](https://github.com/CRE-A/Nectar/assets/121703704/881fdbb4-65c6-4f6c-9059-328d45f1eb5f)
+
+![ASDF](https://github.com/CRE-A/Nectar/assets/121703704/36a82cdd-db4b-4cd1-93e9-fc9204d55aba)
 
 
 
