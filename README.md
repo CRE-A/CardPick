@@ -1,5 +1,6 @@
 # 💡 CARD PICK 
-![ASDF](https://github.com/CRE-A/CardPick/assets/121703704/9e53afd6-db36-45e5-afbf-9ac3729f0393)
+![ASDF](https://github.com/CRE-A/JagureAndButterfly/assets/121703704/cea52d26-de66-4ab8-bd79-33287b6bd036)
+
 
 
 카드 뽑기를 통한 개인 성향(MBTI) 측정 서비스
