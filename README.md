@@ -78,7 +78,7 @@
 
  <li>JSP - Visual Studio Code, IntelliJ IDEA</li>
  
- <li>Spring BOOT - IntelliJ IDEA</li>
+ <li>Spring (MVC) - IntelliJ IDEA</li>
 
  <li>Database - MySQL 8.0</li>
  
